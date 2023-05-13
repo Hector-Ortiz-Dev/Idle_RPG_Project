@@ -1,0 +1,203 @@
+/*Variables
+        Int
+        var miInt: Int = 1000
+        Long
+        var miLong: Long = 1000000000000000000
+        Float
+        var miFloat: Float = 3.14f
+        Double
+        var miDouble: Double = 3.14159265
+        Char
+        var miChar: Char = 's'
+        String
+        var miString: String = "Hello world!"
+        Boolean
+        var miBoolean: Boolean = true
+
+        Constants (Val)
+        val constant = 10
+
+        Null (Variables que pueden ser nulo)
+        var nulo: String? = "Contenido"
+        nulo = null
+
+        val var1 = "MiinishBat DEV"
+
+        //Log
+        Log1.d("PrimerLog", "Valor de la constante: " + var1)
+
+        //Operadores Aritmeticos
+        + Suma
+        - Resta
+        * Multiplicacion
+        / Division
+        % Modular
+
+        //Operador asignacion
+        var A: Int = 20
+        var B: Int = 4
+        Sumarle B a A
+        A += B
+
+        //Operador concatenar
+        val texto: String = "Mi nombre es "
+        var nombre: String = "MiinishBat"
+        Log.d("TAG", texto + nombre + " y vivo en Mexico")
+        Log.d("TAG", "$texto $nombre y vivo en Mexico")
+
+        //Operador incremento y decremento
+        x++ Post Incremento
+        ++x Pre Incremento
+
+        x-- Post Decremento
+        --x Pre Decremento
+
+        Post: El valor cambia una linea despues
+        Pre: El valor cambia en la misma linea
+
+        //Operadores de comparacion o relational
+        < Menor que
+        > Mayor que
+        <= Menor o igual que
+        >= Mayor o igual que
+        == igual que
+        != diferente que
+
+        var a: Int = 3
+        var b: Int = 7
+
+        Log.d("TAG", "a < b: " + (a<b)) //Imprime "a< b: true"
+
+        //Operadores Logicos
+        && -> Devuelve TRUE si ambas condiciones son TRUE
+        || -> Devuelve TRUE si alguna de las condiciones son TRUE
+        ! -> Invierte el valor de la condicion que se le pasa
+
+        //Control de flujo o estructuras de control
+        1.-If else
+
+        var a: Int = 5
+        if((a%2) == 0){
+            Log.d("TAG", "El numero: " + a + " es par")
+        } else{
+            Log.d("TAG", "El numero: " + a + " es impar")
+        }
+
+        2.-When
+
+        var a: Int = 4
+        when (a){
+            1 -> Log.d("TAG","El numero es igual a 1")
+            2 -> Log.d("TAG","El numero es igual a 2")
+            3 -> Log.d("TAG","El numero es igual a 3")
+            4 -> Log.d("TAG","El numero es igual a 4")
+            else -> {
+                Log.d("TAG","El numero no esta comprendido entre 1 y 4")
+            }
+        }
+
+        when (a){
+            1,2,3,4 -> Log.d("TAG","El numero esta entre 1 y 4")
+            else -> {
+                Log.d("TAG","El numero no esta comprendido entre 1 y 4")
+            }
+        }
+
+        when (a){
+            in 1..4 -> Log.d("TAG","El numero esta entre 1 y 4")
+            else -> {
+                Log.d("TAG","El numero no esta comprendido entre 1 y 4")
+            }
+        }
+
+        when (a){
+            !in 1..4 -> Log.d("TAG","El numero no esta entre 1 y 4")
+            else -> {
+                Log.d("TAG","El numero esta comprendido entre 1 y 4")
+            }
+        }
+
+        3.-For
+
+        for(numero in 1..10{
+            Log.d("TAG","El valor es: $numero")
+        }
+
+        4.-While
+
+        var contador: Int = 1
+        while (contador <= 10){
+            Log.d("TAG","El valor es: $contador")
+            contador++
+        }
+
+        5.-Do while
+
+        var contador: Int = 15
+        do{
+            Log.d("TAG","El valor es: $contador")
+            contador++
+        }while (contador <= 10)
+
+        6.- Break y continue en bucles
+
+        break: Rompe el bucle
+        continue: No ejecuta las lineas siguientes pero continua con el bucle
+
+        //Arrays
+
+        var animales = arrayOf("pollo", "gallina", "cerdo", "pato", "perro", "gato")
+        Log.d("TAG", "El primer animal del arreglo es: ${animales.get(0)}")
+
+        for (animal in animales){ //Ciclo para recorrer el arreglo
+            Log.d("TAG", "$animal")
+        }
+
+        //Array List
+
+        var listAnimales = ArrayList<String>()
+        listAnimales.add("pollo")
+        listAnimales.add("gato")
+        Log.d("TAG", "El animal numero dos es: ${listAnimales.get(1)}")
+
+        listAnimales.remove("gato")
+
+        listAnimales.set(1, "perro") //Actualizar un valor en concreto
+        Log.d("TAG", "Numero de animales: ${listAnimales.size}")
+
+        if(listAnimales.contains("pollo"){
+            Log.d("TAG", "Si existe un pollo en la lista")
+        }else{
+            Log.d("TAG", "No hay un pollos :c")
+        }
+
+        //Hash Map
+
+        var hashMapAnimales = HashMap<Int, String>()
+        hashMapAnimales.put(1, "pollo")
+        hashMapAnimales.put(2, "gato")
+        hashMapAnimales.put(3, "perro")
+        hashMapAnimales.put(4, "sapo")
+        hashMapAnimales.put(5, "paloma")
+        Log.d("TAG", "${hashMapAnimales.get(2)}")
+
+        for(claves in hashMapAnimales.keys){
+            Log.d("TAG", "${hashMapAnimales.get(claves)}")
+        }
+
+        //Funciones
+
+        //funcion nombre(entrada)salida
+        fun alCuadrado(numero: Int):Int{
+            return numero*numero
+        }
+
+        //funcion que no muestra nada, Unit es para especificar que no devuelve
+        fun mostrarResultado(mostrar:Int):Unit{
+            Log.d("TAG", "El resultado es: $mostrar")
+        }
+
+
+
+///Log.d("TAG", "")
+         */

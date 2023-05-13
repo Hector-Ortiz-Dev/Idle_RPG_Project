@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".EditProfileActivity">
+
+    <!-- Título de la pantalla -->
+    <TextView
+        android:id="@+id/edit_profile_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/edit_profile"
+        android:textColor="@color/primary"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
+    <!-- Cuadro para la imagen del usuario -->
+    <ImageView
+        android:id="@+id/user_image"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@drawable/user"
+        android:layout_below="@id/edit_profile_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp" />
+
+    <!-- Campo para introducir el nombre de usuario -->
+    <EditText
+        android:id="@+id/username_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/user_image"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="32dp"
+        android:hint="@string/username"
+        android:inputType="text"
+        android:maxLines="1"
+        android:textColor="@color/primary"
+        tools:ignore="TouchTargetSizeCheck" />
+
+
+    <!-- Campo para introducir la contraseña -->
+    <EditText
+        android:id="@+id/password_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/username_input"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="32dp"
+        android:hint="@string/password_hint"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:textColor="@color/primary"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <!-- Campo para introducir la nueva contraseña -->
+    <EditText
+        android:id="@+id/newPassword_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/password_input"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="32dp"
+        android:hint="@string/new_password_hint"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:textColor="@color/primary"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <!-- Campo para repetir la nueva contraseña -->
+    <EditText
+        android:id="@+id/repeat_new_password_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/newPassword_input"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="32dp"
+        android:hint="@string/repeat_new_password"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:textColor="@color/primary"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <!-- Botón para registrarse -->
+    <Button
+        android:id="@+id/register_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Confirm"
+        android:background="@color/accept"
+        android:textColor="@color/white"
+        android:layout_below="@id/repeat_new_password_input"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"/>
+
+</RelativeLayout>

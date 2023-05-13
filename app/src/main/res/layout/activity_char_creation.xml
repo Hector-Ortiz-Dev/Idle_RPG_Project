@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/background"
+    tools:context=".CharCreationActivity">
+
+    <!-- Título de la pantalla -->
+    <TextView
+        android:id="@+id/title_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/character_creation"
+        android:textColor="@color/primary"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"/>
+
+    <!-- Cuadro para la imagen del usuario -->
+    <ImageView
+        android:id="@+id/user_image"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/character"
+        android:layout_below="@id/title_textview"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp" />
+
+    <!-- Sección para seleccionar la cabeza del personaje -->
+    <TextView
+        android:id="@+id/head_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/select_head"
+        android:textColor="@color/primary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_below="@id/user_image"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"/>
+
+    <Spinner
+        android:id="@+id/head_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/head_textview"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:entries="@array/head_types"
+        android:prompt="@string/head_prompt"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <!-- Sección para seleccionar el cuerpo del personaje -->
+    <TextView
+        android:id="@+id/body_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/select_body"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_below="@id/head_spinner"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="32dp"/>
+
+    <Spinner
+        android:id="@+id/body_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/body_textview"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:entries="@array/body_types"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <!-- Sección para seleccionar la clase del personaje -->
+    <TextView
+        android:id="@+id/class_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/select_class"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_below="@id/body_spinner"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="32dp"/>
+
+    <Spinner
+        android:id="@+id/class_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/class_textview"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:entries="@array/class_types"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <!-- Sección para seleccionar el género del personaje -->
+    <TextView
+        android:id="@+id/gender_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/select_gender"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_below="@id/class_spinner"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="32dp"/>
+
+
+    <RadioGroup
+        android:id="@+id/gender_radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="32dp"
+        android:layout_below="@id/gender_textview"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/male_radio_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <RadioButton
+            android:id="@+id/female_radio_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female"
+            tools:ignore="TouchTargetSizeCheck" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/confirm_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:paddingHorizontal="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/gender_radio_group"
+        android:background="@color/accept"
+        android:textColor="@color/white"
+        android:text="Confirm"/>
+</RelativeLayout>

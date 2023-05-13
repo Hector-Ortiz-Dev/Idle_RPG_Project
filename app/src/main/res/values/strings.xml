@@ -1,3 +1,58 @@
 <resources>
     <string name="app_name">Idle_RPG_Project</string>
+    <string name="logo">Idle_RPG_Project_Logo</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="new_password_hint">New password</string>
+    <string name="login">Login</string>
+    <string name="register">Sign In</string>
+    <string name="name">Name</string>
+    <string name="last_name">Last name</string>
+    <string name="username">Username</string>
+    <string name="repeat_password">Repeat password</string>
+    <string name="repeat_new_password">Repeat new password</string>
+    <string name="character_creation">Character Creation</string>
+    <string name="select_head">Select Head</string>
+
+    <string-array name="head_types">
+        <item>Head1</item>
+        <item>Head2</item>
+        <item>Head3</item>
+        <item>Head4</item>
+        <item>Head5</item>
+    </string-array>
+
+    <string-array name="body_types">
+        <item>Body1</item>
+        <item>Body2</item>
+        <item>Body3</item>
+        <item>Body4</item>
+        <item>Body5</item>
+    </string-array>
+
+    <string-array name="class_types">
+        <item>Knight</item>
+        <item>Assassin</item>
+        <item>Mage</item>
+        <item>Ranger</item>
+        <item>Explorer</item>
+    </string-array>
+
+    <string name="head_prompt">Head prompt</string>
+
+    <string name="select_body">Select Body</string>
+    <string name="select_class">Select Class</string>
+    <string name="select_gender">Select Gender</string>
+
+    <string name="edit_profile">Edit Profile</string>
+    <string name="new_password_input">New password</string>
+    <string name="repeat_new_password_input">Repeat new password</string>
+
+    <string name="guild">Guild</string>
+    <string name="shop">Shop</string>
+    <string name="character">Character</string>
+    <string name="options">Options</string>
+    <string name="logout">Logout</string>
+
+
 </resources>

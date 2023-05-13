@@ -7,4 +7,15 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="background">#C1C1C1</color>
+    <color name="accept">#3F7B35</color>
+    <color name="cancel1">#B2501A</color>
+    <color name="cancel2">#6C2F0D</color>
+    <color name="windowText">#404040</color>
+    <color name="windowPrimary">#435E78</color>
+    <color name="windowSecondary">#627587</color>
+    <color name="box">#A98D45</color>
+    <color name="primary">#57463C</color>
+    <color name="secondary">#967969</color>
 </resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- estilo para el botón de inicio de sesión -->
+    <style name="LoginButton" parent="Widget.AppCompat.Button">
+        <item name="android:background">@color/accept</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- estilo para el botón de registro -->
+    <style name="RegisterButton" parent="Widget.AppCompat.Button">
+        <item name="android:background">@color/secondary</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- efecto hover para botones -->
+    <style name="ButtonHover" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/button_hover</item>
+    </style>
+
+</resources>
