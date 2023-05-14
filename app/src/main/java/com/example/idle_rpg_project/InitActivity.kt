@@ -12,10 +12,7 @@ class InitActivity : AppCompatActivity() {
 
         val logo = findViewById<ImageView>(R.id.initLogo)
 
-        //val animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in)
-        val animationFadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in)
-        //val animationFadeOut = AnimationUtils.loadAnimation(this, R.anim.fade_out)
+        val animationFadeIn = AnimationUtils.loadAnimation(this, R.anim.fade)
         logo.startAnimation(animationFadeIn)
-        //logo.startAnimation(animationFadeOut)
     }
 }
