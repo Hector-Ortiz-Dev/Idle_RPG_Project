@@ -12,5 +12,5 @@ interface ApiUsuario {
     abstract fun getAll(): Call<RequestUsuario>
 
     @POST("usuario")
-    abstract fun add(@Body data: Usuario): Call<RequestUsuario>
+    abstract fun login(@Body data: Usuario): Call<RequestUsuario>
 }
