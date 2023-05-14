@@ -1,5 +1,6 @@
 package com.example.idle_rpg_project
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +9,7 @@ import android.widget.EditText
 import android.widget.Toast
 import com.example.idle_rpg_project.models.Usuario
 import com.example.idle_rpg_project.services.UsuarioService
+import showCustomToast
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,16 +36,20 @@ class LoginActivity : AppCompatActivity() {
 
         usuarioService.login(data) {
             if (it == null) {
-                Toast.makeText(applicationContext, "error to call server request.", Toast.LENGTH_SHORT).show()
-                //Log.e("Error", "Error al solicitar información")
+                //Toast.makeText(applicationContext, "Error to call server request.", Toast.LENGTH_SHORT).show()
+                Toast(this).showCustomToast ("#DD0000","Error to call server request.", this)
             }
             else {
-                //Log.e("Error", "Success")
                 if(it.estatus == 404){
-                    Toast.makeText(applicationContext, "Incorrect user or password, try again.", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(applicationContext, "Incorrect user or password, try again.", Toast.LENGTH_SHORT).show()
+                    Toast(this).showCustomToast ("#DD0000","Incorrect user or password, try again.", this)
                 }
                 else {
-                    Toast.makeText(applicationContext, "Loading information...", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(applicationContext, "Loading information...", Toast.LENGTH_SHORT).show()
+                    Toast(this).showCustomToast ("#3F7B35", "Loading information...", this)
+
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
                 }
             }
         }

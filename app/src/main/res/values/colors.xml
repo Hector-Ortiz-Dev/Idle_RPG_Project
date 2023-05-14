@@ -18,4 +18,5 @@
     <color name="box">#A98D45</color>
     <color name="primary">#57463C</color>
     <color name="secondary">#967969</color>
+    <color name="error">#BB0000</color>
 </resources>
