@@ -48,7 +48,10 @@ class LoginActivity : AppCompatActivity() {
                     //Toast.makeText(applicationContext, "Loading information...", Toast.LENGTH_SHORT).show()
                     Toast(this).showCustomToast ("#3F7B35", "Loading information...", this)
 
+                    val data: Usuario = it.records[0]
+
                     val intent = Intent(this, MainActivity::class.java)
+                    intent.putExtra("user", data);
                     startActivity(intent)
                 }
             }
