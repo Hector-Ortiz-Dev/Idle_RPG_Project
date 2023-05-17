@@ -18,20 +18,14 @@ class LoginActivity : AppCompatActivity() {
 
         val loginButton = findViewById<Button>(R.id.login_button)
 
-        loginButton.setOnClickListener { onClickLoginButton() }
+        loginButton.setOnClickListener { login() }
     }
 
-
-    fun onClickLoginButton() {
+    private fun login() {
         val txtEmail = findViewById<EditText>(R.id.email_edittext).text.toString()
         val txtPass = findViewById<EditText>(R.id.password_edittext).text.toString()
-
         val data = Usuario(method = "login", username = txtEmail, contrasena = txtPass)
 
-        login(data)
-    }
-
-    fun login(data: Usuario) {
         val usuarioService = UsuarioService()
 
         usuarioService.login(data) {
