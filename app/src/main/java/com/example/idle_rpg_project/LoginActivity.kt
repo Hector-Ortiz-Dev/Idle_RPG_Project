@@ -28,7 +28,7 @@ class LoginActivity : AppCompatActivity() {
 
         val usuarioService = UsuarioService()
 
-        usuarioService.login(data) {
+        usuarioService.post(data) {
             if (it == null) {
                 //Toast.makeText(applicationContext, "Error to call server request.", Toast.LENGTH_SHORT).show()
                 Toast(this).showCustomToast ("#DD0000","Error to call server request.", this)
