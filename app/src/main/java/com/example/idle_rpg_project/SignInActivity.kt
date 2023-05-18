@@ -19,21 +19,21 @@ class SignInActivity : AppCompatActivity() {
         //progressDialog.setMessage("Please wait...")
         //progressDialog.show()
 
-        getUsuarios()
+//        getUsuarios()
     }
 
-    fun getUsuarios() {
-        val usuarioService = UsuarioService()
-
-        usuarioService.getAll {
-            if (it == null) {
-                Log.e("Error", "Error al solicitar información")
-            }
-            else {
-                for(item in it.records){
-                    Log.d("User:", item.toString())
-                }
-            }
-        }
-    }
+//    fun getUsuarios() {
+//        val usuarioService = UsuarioService()
+//
+//        usuarioService.getAll {
+//            if (it == null) {
+//                Log.e("Error", "Error al solicitar información")
+//            }
+//            else {
+//                for(item in it.records){
+//                    Log.d("User:", item.toString())
+//                }
+//            }
+//        }
+//    }
 }

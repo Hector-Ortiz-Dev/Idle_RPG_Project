@@ -39,7 +39,14 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
+<<<<<<< HEAD
             android:exported="false" />
+=======
+            android:exported="false"/>
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"/>
+>>>>>>> main
     </application>
 
 </manifest>

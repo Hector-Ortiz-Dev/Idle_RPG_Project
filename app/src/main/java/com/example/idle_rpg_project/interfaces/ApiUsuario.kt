@@ -6,11 +6,15 @@ import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface ApiUsuario {
     @GET("usuario")
     abstract fun getAll(): Call<RequestUsuario>
 
+    @GET("usuario/{id}")
+    abstract fun getById(@Path("id") id: Int): Call<RequestUsuario>
+
     @POST("usuario")
-    abstract fun add(@Body data: Usuario): Call<RequestUsuario>
+    abstract fun post(@Body data: Usuario): Call<RequestUsuario>
 }
