@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.idle_rpg_project.custom.DataBaseHandler
 
 class MainActivity2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,7 +44,7 @@ class MainActivity2 : AppCompatActivity() {
                     editEmail.text.toString(),
                     editImage.text.toString()
                 )
-                db.insertData(user)
+//                db.insertData(user)
             } else {
                 Toast.makeText(context, "Por favor complete los datos", Toast.LENGTH_SHORT).show()
             }
@@ -52,18 +53,18 @@ class MainActivity2 : AppCompatActivity() {
         btnRead.setOnClickListener {
             val data = db.readData()
             tvResult.text = ""
-            for (i in 0..(data.size - 1)) {
-                tvResult.append(
-                    data.get(i).id.toString() + " " +
-                            data.get(i).username + " " +
-                            data.get(i).name + " " +
-                            data.get(i).lastName + " " +
-                            data.get(i).email + " " +
-                            data.get(i).password + " " +
-                            data.get(i).urlImage + " " +
-                            data.get(i).idGuild + "\n"
-                )
-            }
+//            for (i in 0..(data.size - 1)) {
+//                tvResult.append(
+//                    data.get(i).id.toString() + " " +
+//                            data.get(i).username + " " +
+//                            data.get(i).name + " " +
+//                            data.get(i).lastName + " " +
+//                            data.get(i).email + " " +
+//                            data.get(i).password + " " +
+//                            data.get(i).urlImage + " " +
+//                            data.get(i).idGuild + "\n"
+//                )
+//            }
         }
     }
 }
