@@ -1,11 +1,9 @@
 package com.example.idle_rpg_project
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.util.Log
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.idle_rpg_project.models.Jugador
@@ -24,6 +22,9 @@ class MainActivity : AppCompatActivity() {
         val user = intent.getSerializableExtra("user") as Usuario
         val id = user.id
         getJugador(id!!)
+
+        val lblUsername = findViewById<TextView>(R.id.username_textview)
+        lblUsername.text = user.username
     }
 
     fun getJugador(id: Int) {
@@ -59,6 +60,13 @@ class MainActivity : AppCompatActivity() {
                     Glide.with(this).load(mediaBrazoIzq).into(imgBrazoIzq)
                     Glide.with(this).load(mediaPieDer).into(imgPieDer)
                     Glide.with(this).load(mediaPieIzq).into(imgPieIzq)
+
+                    val lblExp = findViewById<TextView>(R.id.experience_textview)
+                    val lblCoins = findViewById<TextView>(R.id.coins_textview)
+                    val lblLevel = findViewById<TextView>(R.id.level_textview)
+                    lblExp.text = "Exp: ${player.exp.toString()}"
+                    lblCoins.text = "Coins: ${player.monedas.toString()}"
+                    lblLevel.text = "Lvl: ${player.nivel.toString()}"
                 }
             }
         }

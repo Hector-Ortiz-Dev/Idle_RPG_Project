@@ -22,26 +22,6 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/experience_textview"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Exp: 244/2332" />
-
-            <TextView
-                android:id="@+id/coins_textview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Coins: 230" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
                 android:id="@+id/username_textview"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -54,6 +34,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Lvl 4" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/experience_textview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Exp: 244/2332" />
+
+            <TextView
+                android:id="@+id/coins_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Coins: 230" />
 
         </LinearLayout>
 
