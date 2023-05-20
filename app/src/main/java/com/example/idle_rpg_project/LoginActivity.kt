@@ -56,6 +56,7 @@ class LoginActivity : AppCompatActivity() {
                     val data: Usuario = it.records[0]
 
                     val db = DBHelper(this, null)
+                    db.delete()
                     db.add(data.id, data.username)
 
                     val intent = Intent(this, MainActivity::class.java)
