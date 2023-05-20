@@ -54,5 +54,21 @@
     <string name="options">Options</string>
     <string name="logout">Logout</string>
 
+    <!--Response to questions-->
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <!--Server response-->
+    <string name="error_server_500">Error to call server request.</string>
+    <string name="error_login_404">Incorrect user or password, try again.</string>
+    <string name="success_loading">Loading information...</string>
+
+    <!--Color response-->
+    <string name="error_color">#BB0000</string>
+    <string name="success_color">#3F7B35</string>
+
+    <!--Questions-->
+    <string name="sure_logout">Are you sure you want to log out?</string>
+
 
 </resources>

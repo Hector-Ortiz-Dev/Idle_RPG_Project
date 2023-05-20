@@ -1,14 +1,19 @@
 package com.example.idle_rpg_project
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.bumptech.glide.Glide
 import com.example.idle_rpg_project.models.Jugador
 import com.example.idle_rpg_project.models.Usuario
 import com.example.idle_rpg_project.services.JugadorService
+import com.example.idle_rpg_project.utils.DBHelper
 import showCustomToast
 
 @Suppress("DEPRECATION")
@@ -19,12 +24,51 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        // Load user
         val user = intent.getSerializableExtra("user") as Usuario
+        // Load username in View
+        val lblUsername = findViewById<TextView>(R.id.username_textview)
+        lblUsername.text = user.username
+        // Load user data with character (coins, exp, etc...)
         val id = user.id
         getJugador(id!!)
 
-        val lblUsername = findViewById<TextView>(R.id.username_textview)
-        lblUsername.text = user.username
+        val btnLogout = findViewById<ImageButton>(R.id.button_exit)
+        btnLogout.setOnClickListener { showAlertDialog() }
+    }
+
+    fun showAlertDialog() {
+        val builder = AlertDialog.Builder(this)
+        //set title for alert dialog
+        builder.setTitle(R.string.logout) //R.string.dialogTitle
+        //set message for alert dialog
+        builder.setMessage(R.string.sure_logout)
+        builder.setIcon(android.R.drawable.ic_dialog_alert)
+
+        //performing positive action
+        builder.setPositiveButton(R.string.yes){ _, _ ->
+            Toast(this).showCustomToast (
+                getString(R.string.error_color),
+                "${getString(R.string.logout)}...",
+                this)
+
+            val db = DBHelper(this, null)
+            db.delete()
+
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        //performing negative action
+        builder.setNegativeButton(R.string.no){ _, _ ->
+            //Toast(this).showCustomToast ("#DD0000","Incorrect user or password, try again.", this)
+        }
+        
+        // Create the AlertDialog
+        val alertDialog: AlertDialog = builder.create()
+        // Set other dialog properties
+        alertDialog.setCancelable(false)
+        alertDialog.show()
     }
 
     fun getJugador(id: Int) {

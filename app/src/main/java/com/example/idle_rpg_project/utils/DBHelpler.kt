@@ -71,10 +71,10 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
     }
 
     //method to delete data
-    fun delete(id: Int) {
+    fun delete() {
         val db = this.writableDatabase
-        val contentValues = ContentValues()
-        contentValues.put(ID_COL, id) // EmpModelClass UserId
+        // val contentValues = ContentValues()
+        // contentValues.put(ID_COL, id) // EmpModelClass UserId
         // Deleting Row
         //val success = db.delete(TABLE_NAME, null,null)
         val success = db.execSQL("delete from $TABLE_NAME");
