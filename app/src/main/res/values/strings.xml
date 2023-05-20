@@ -53,6 +53,7 @@
     <string name="character">Character</string>
     <string name="options">Options</string>
     <string name="logout">Logout</string>
+    <string name="exit">Exit</string>
 
     <!--Response to questions-->
     <string name="yes">Yes</string>
@@ -69,6 +70,6 @@
 
     <!--Questions-->
     <string name="sure_logout">Are you sure you want to log out?</string>
-
+    <string name="sure_exit">Are you sure you want to exit app?</string>
 
 </resources>

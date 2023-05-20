@@ -37,6 +37,29 @@ class MainActivity : AppCompatActivity() {
         btnLogout.setOnClickListener { showAlertDialog() }
     }
 
+    override fun onBackPressed() {
+        val builder = AlertDialog.Builder(this)
+        //set title for alert dialog
+        builder.setTitle(R.string.exit) //R.string.dialogTitle
+        //set message for alert dialog
+        builder.setMessage(R.string.sure_exit)
+        builder.setIcon(android.R.drawable.ic_dialog_alert)
+
+        builder.setPositiveButton(R.string.yes){ _, _ ->
+            finish()
+        }
+        //performing negative action
+        builder.setNegativeButton(R.string.no){ _, _ ->
+
+        }
+
+        // Create the AlertDialog
+        val alertDialog: AlertDialog = builder.create()
+        // Set other dialog properties
+        alertDialog.setCancelable(false)
+        alertDialog.show()
+    }
+
     fun showAlertDialog() {
         val builder = AlertDialog.Builder(this)
         //set title for alert dialog
@@ -63,7 +86,7 @@ class MainActivity : AppCompatActivity() {
         builder.setNegativeButton(R.string.no){ _, _ ->
             //Toast(this).showCustomToast ("#DD0000","Incorrect user or password, try again.", this)
         }
-        
+
         // Create the AlertDialog
         val alertDialog: AlertDialog = builder.create()
         // Set other dialog properties
