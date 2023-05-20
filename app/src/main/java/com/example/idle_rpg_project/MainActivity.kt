@@ -35,6 +35,9 @@ class MainActivity : AppCompatActivity() {
 
         val btnLogout = findViewById<ImageButton>(R.id.button_exit)
         btnLogout.setOnClickListener { showAlertDialog() }
+
+        val btnCustomChar = findViewById<ImageButton>(R.id.button_options)
+        btnCustomChar.setOnClickListener { openCharacterActivity() }
     }
 
     override fun onBackPressed() {
@@ -60,7 +63,7 @@ class MainActivity : AppCompatActivity() {
         alertDialog.show()
     }
 
-    fun showAlertDialog() {
+    private fun showAlertDialog() {
         val builder = AlertDialog.Builder(this)
         //set title for alert dialog
         builder.setTitle(R.string.logout) //R.string.dialogTitle
@@ -92,6 +95,11 @@ class MainActivity : AppCompatActivity() {
         // Set other dialog properties
         alertDialog.setCancelable(false)
         alertDialog.show()
+    }
+
+    private fun openCharacterActivity() {
+        val intent = Intent(this, CharCreationActivity::class.java)
+        startActivity(intent)
     }
 
     fun getJugador(id: Int) {

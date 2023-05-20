@@ -13,34 +13,38 @@
     <string name="repeat_new_password">Repeat new password</string>
     <string name="character_creation">Character Creation</string>
     <string name="select_head">Select Head</string>
+    <string name="select_body">Select Body</string>
+    <string name="select_left_arm">Select Left Arm</string>
+    <string name="select_right_arm">Select Right Arm</string>
+    <string name="select_left_leg">Select Left Leg</string>
+    <string name="select_right_leg">Select Right Leg</string>
+    <string name="select_type">Type: </string>
+    <string name="select_color">Color: </string>
 
-    <string-array name="head_types">
-        <item>Head1</item>
-        <item>Head2</item>
-        <item>Head3</item>
-        <item>Head4</item>
-        <item>Head5</item>
+    <string-array name="colors">
+        <item>blue</item>
+        <item>green</item>
+        <item>orange</item>
+        <item>pink</item>
+        <item>purple</item>
+        <item>red</item>
+        <item>white</item>
+        <item>yelow</item>
     </string-array>
 
-    <string-array name="body_types">
-        <item>Body1</item>
-        <item>Body2</item>
-        <item>Body3</item>
-        <item>Body4</item>
-        <item>Body5</item>
-    </string-array>
-
-    <string-array name="class_types">
-        <item>Knight</item>
-        <item>Assassin</item>
-        <item>Mage</item>
-        <item>Ranger</item>
-        <item>Explorer</item>
+    <string-array name="types">
+        <item>Base</item>
+        <item>Bone</item>
+        <item>Cream</item>
+        <item>Girl</item>
+        <item>Octo</item>
+        <item>Robot</item>
+        <item>Tri</item>
+        <item>Yin</item>
     </string-array>
 
     <string name="head_prompt">Head prompt</string>
 
-    <string name="select_body">Select Body</string>
     <string name="select_class">Select Class</string>
     <string name="select_gender">Select Gender</string>
 
