@@ -7,7 +7,6 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.example.idle_rpg_project.custom.DataBaseHandler
 import com.example.idle_rpg_project.models.Usuario
 import com.example.idle_rpg_project.services.UsuarioService
 import com.example.idle_rpg_project.utils.DBHelper

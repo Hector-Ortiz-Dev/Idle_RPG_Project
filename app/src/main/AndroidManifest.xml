@@ -24,9 +24,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity2"
-            android:exported="false"/>
-        <activity
             android:name=".CharacterActivity"
             android:exported="false" />
         <activity
