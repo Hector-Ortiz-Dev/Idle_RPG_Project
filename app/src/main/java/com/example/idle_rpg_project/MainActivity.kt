@@ -99,6 +99,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun openCharacterActivity() {
         val intent = Intent(this, CharCreationActivity::class.java)
+        intent.putExtra("player", player);
         startActivity(intent)
     }
 

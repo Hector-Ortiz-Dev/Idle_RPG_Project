@@ -11,7 +11,7 @@
     <string name="username">Username</string>
     <string name="repeat_password">Repeat password</string>
     <string name="repeat_new_password">Repeat new password</string>
-    <string name="character_creation">Character Creation</string>
+    <string name="custom_character">Custom Character</string>
     <string name="select_head">Select Head</string>
     <string name="select_body">Select Body</string>
     <string name="select_left_arm">Select Left Arm</string>
@@ -62,6 +62,8 @@
     <!--Response to questions-->
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="back">Back</string>
+    <string name="confirm">Confirm</string>
 
     <!--Server response-->
     <string name="error_server_500">Error to call server request.</string>
