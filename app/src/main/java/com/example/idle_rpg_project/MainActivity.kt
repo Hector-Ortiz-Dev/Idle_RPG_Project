@@ -40,6 +40,18 @@ class MainActivity : AppCompatActivity() {
         btnCustomChar.setOnClickListener { openCharacterActivity() }
     }
 
+    override fun onResume() {
+        super.onResume()
+        // Load user
+        val user = intent.getSerializableExtra("user") as Usuario
+        // Load username in View
+        val lblUsername = findViewById<TextView>(R.id.username_textview)
+        lblUsername.text = user.username
+        // Load user data with character (coins, exp, etc...)
+        val id = user.id
+        getJugador(id!!)
+    }
+
     override fun onBackPressed() {
         val builder = AlertDialog.Builder(this)
         //set title for alert dialog

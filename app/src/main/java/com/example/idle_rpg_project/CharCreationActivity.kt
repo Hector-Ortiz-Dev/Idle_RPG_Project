@@ -1,5 +1,6 @@
 package com.example.idle_rpg_project
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -7,12 +8,36 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.idle_rpg_project.models.Jugador
+import com.example.idle_rpg_project.models.Usuario
+import com.example.idle_rpg_project.services.JugadorService
+import com.example.idle_rpg_project.services.UsuarioService
+import com.example.idle_rpg_project.utils.DBHelper
+import showCustomToast
 
 @Suppress("DEPRECATION")
 class CharCreationActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     var player: Jugador = Jugador()
     var types_characters = arrayOf("Base", "Bone", "Cream", "Girl", "Octo", "Robot", "Tri", "Yin")
-    var color_characters = arrayOf("blue", "green", "orange", "pink", "purple", "red", "white", "yellow")
+    var color_characters =
+        arrayOf("blue", "green", "orange", "pink", "purple", "red", "white", "yellow")
+
+    private lateinit var imgHead: ImageView
+    private lateinit var imgTorso: ImageView
+    private lateinit var imgBrazoDer: ImageView
+    private lateinit var imgBrazoIzq: ImageView
+    private lateinit var imgPieDer: ImageView
+    private lateinit var imgPieIzq: ImageView
+    private lateinit var spinnerHeadType: Spinner
+    private lateinit var spinnerLeftArmType: Spinner
+    private lateinit var spinnerRightArmType: Spinner
+    private lateinit var spinnerLeftLegType: Spinner
+    private lateinit var spinnerRightLegType: Spinner
+    private lateinit var spinnerHeadColor: Spinner
+    private lateinit var spinnerBodyColor: Spinner
+    private lateinit var spinnerLeftArmColor: Spinner
+    private lateinit var spinnerRightArmColor: Spinner
+    private lateinit var spinnerLeftLegColor: Spinner
+    private lateinit var spinnerRightLegColor: Spinner
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,20 +45,39 @@ class CharCreationActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
 
         player = intent.getSerializableExtra("player") as Jugador
 
+        initializeViews()
         loadImages()
-
         loadInputData()
 
+        val btnConfirm = findViewById<Button>(R.id.confirm_button)
+        btnConfirm.setOnClickListener { saveChangesCustomCharacter() }
+    }
+
+    private fun initializeViews() {
+        // IMAGES
+        imgHead = findViewById<ImageView>(R.id.cabeza)
+        imgTorso = findViewById<ImageView>(R.id.torso)
+        imgBrazoDer = findViewById<ImageView>(R.id.brazoDer)
+        imgBrazoIzq = findViewById<ImageView>(R.id.brazoIzq)
+        imgPieDer = findViewById<ImageView>(R.id.pieDer)
+        imgPieIzq = findViewById<ImageView>(R.id.pieIzq)
+
+        // INPUTS
+        spinnerHeadType = findViewById<Spinner>(R.id.spinner_head_type)
+        spinnerLeftArmType = findViewById<Spinner>(R.id.spinner_left_arm_type)
+        spinnerRightArmType = findViewById<Spinner>(R.id.spinner_right_arm_type)
+        spinnerLeftLegType = findViewById<Spinner>(R.id.spinner_left_leg_type)
+        spinnerRightLegType = findViewById<Spinner>(R.id.spinner_right_leg_type)
+
+        spinnerHeadColor = findViewById<Spinner>(R.id.spinner_head_color)
+        spinnerBodyColor = findViewById<Spinner>(R.id.spinner_body_color)
+        spinnerLeftArmColor = findViewById<Spinner>(R.id.spinner_left_arm_color)
+        spinnerRightArmColor = findViewById<Spinner>(R.id.spinner_right_arm_color)
+        spinnerLeftLegColor = findViewById<Spinner>(R.id.spinner_left_leg_color)
+        spinnerRightLegColor = findViewById<Spinner>(R.id.spinner_right_leg_color)
     }
 
     private fun loadImages() {
-        val imgHead = findViewById<ImageView>(R.id.cabeza)
-        val imgTorso = findViewById<ImageView>(R.id.torso)
-        val imgBrazoDer = findViewById<ImageView>(R.id.brazoDer)
-        val imgBrazoIzq = findViewById<ImageView>(R.id.brazoIzq)
-        val imgPieDer = findViewById<ImageView>(R.id.pieDer)
-        val imgPieIzq = findViewById<ImageView>(R.id.pieIzq)
-
         val mediaHead = "https://movilesmx.000webhostapp.com/idle_rpg/images/jugador/head/${player.cabeza}/${player.cabezaC}.png"
         val mediaTorso = "https://movilesmx.000webhostapp.com/idle_rpg/images/jugador/body/${player.torso}.png"
         val mediaBrazoDer = "https://movilesmx.000webhostapp.com/idle_rpg/images/jugador/right_arm/${player.brazoDer}/${player.brazoDerC}.png"
@@ -54,19 +98,6 @@ class CharCreationActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
         adapterType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         val adapterColor: ArrayAdapter<CharSequence> = ArrayAdapter(this, android.R.layout.simple_spinner_item, color_characters)
         adapterColor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-
-        val spinnerHeadType = findViewById<Spinner>(R.id.spinner_head_type)
-        val spinnerLeftArmType = findViewById<Spinner>(R.id.spinner_left_arm_type)
-        val spinnerRightArmType = findViewById<Spinner>(R.id.spinner_right_arm_type)
-        val spinnerLeftLegType = findViewById<Spinner>(R.id.spinner_left_leg_type)
-        val spinnerRightLegType = findViewById<Spinner>(R.id.spinner_right_leg_type)
-
-        val spinnerHeadColor = findViewById<Spinner>(R.id.spinner_head_color)
-        val spinnerBodyColor = findViewById<Spinner>(R.id.spinner_body_color)
-        val spinnerLeftArmColor = findViewById<Spinner>(R.id.spinner_left_arm_color)
-        val spinnerRightArmColor = findViewById<Spinner>(R.id.spinner_right_arm_color)
-        val spinnerLeftLegColor = findViewById<Spinner>(R.id.spinner_left_leg_color)
-        val spinnerRightLegColor = findViewById<Spinner>(R.id.spinner_right_leg_color)
 
         spinnerHeadType.onItemSelectedListener = this
         spinnerLeftArmType.onItemSelectedListener = this
@@ -94,31 +125,18 @@ class CharCreationActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
         spinnerLeftLegColor.adapter = adapterColor
         spinnerRightLegColor.adapter = adapterColor
 
-        val selectionHeadType = player.cabeza
-        val selectionLeftArmType = player.brazoIzq
-        val selectionRightArmType = player.brazoDer
-        val selectionLeftLegType = player.pieIzq
-        val selectionRightLegType = player.pieDer
+        val spinnerPositionHeadType: Int = adapterType.getPosition(player.cabeza)
+        val spinnerPositionLeftArmType: Int = adapterType.getPosition(player.brazoIzq)
+        val spinnerPositionRightArmType: Int = adapterType.getPosition(player.brazoDer)
+        val spinnerPositionLeftLegType: Int = adapterType.getPosition(player.pieIzq)
+        val spinnerPositionRightLegType: Int = adapterType.getPosition(player.pieDer)
 
-        val selectionHeadColor = player.cabezaC
-        val selectionBodyColor = player.torso
-        val selectionLeftArmColor = player.brazoIzqC
-        val selectionRightArmColor = player.brazoDerC
-        val selectionLeftLegColor = player.pieIzqC
-        val selectionRightLegColor = player.pieDerC
-
-        val spinnerPositionHeadType: Int = adapterType.getPosition(selectionHeadType)
-        val spinnerPositionLeftArmType: Int = adapterType.getPosition(selectionLeftArmType)
-        val spinnerPositionRightArmType: Int = adapterType.getPosition(selectionRightArmType)
-        val spinnerPositionLeftLegType: Int = adapterType.getPosition(selectionLeftLegType)
-        val spinnerPositionRightLegType: Int = adapterType.getPosition(selectionRightLegType)
-
-        val spinnerPositionHeadColor: Int = adapterColor.getPosition(selectionHeadColor)
-        val spinnerPositionBodyColor: Int = adapterColor.getPosition(selectionBodyColor)
-        val spinnerPositionLeftArmColor: Int = adapterColor.getPosition(selectionLeftArmColor)
-        val spinnerPositionRightArmColor: Int = adapterColor.getPosition(selectionRightArmColor)
-        val spinnerPositionLeftLegColor: Int = adapterColor.getPosition(selectionLeftLegColor)
-        val spinnerPositionRightLegColor: Int = adapterColor.getPosition(selectionRightLegColor)
+        val spinnerPositionHeadColor: Int = adapterColor.getPosition(player.cabezaC)
+        val spinnerPositionBodyColor: Int = adapterColor.getPosition(player.torso)
+        val spinnerPositionLeftArmColor: Int = adapterColor.getPosition(player.brazoIzqC)
+        val spinnerPositionRightArmColor: Int = adapterColor.getPosition(player.brazoDerC)
+        val spinnerPositionLeftLegColor: Int = adapterColor.getPosition(player.pieIzqC)
+        val spinnerPositionRightLegColor: Int = adapterColor.getPosition(player.pieDerC)
 
         spinnerHeadType.setSelection(spinnerPositionHeadType)
         spinnerLeftArmType.setSelection(spinnerPositionLeftArmType)
@@ -141,12 +159,9 @@ class CharCreationActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
     }
 
     override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-//        Toast.makeText(this, "" + types_characters.get(position) + " Selected..", Toast.LENGTH_SHORT).show()
-//        Log.e("test", parent.toString())
-//        TODO("Not yet implemented")
 
         when (parent.getId()) {
-            R.id.spinner_head_type-> {
+            R.id.spinner_head_type -> {
                 val img = findViewById<ImageView>(R.id.cabeza)
                 val spinnerType = findViewById<Spinner>(R.id.spinner_head_type)
                 val spinnerColor = findViewById<Spinner>(R.id.spinner_head_color)
@@ -259,5 +274,52 @@ class CharCreationActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
 
     override fun onNothingSelected(p0: AdapterView<*>?) {
         TODO("Not yet implemented")
+    }
+
+    private fun saveChangesCustomCharacter() {
+        val data = Jugador(
+            method = "setCustomCharacter",
+            id = player.id,
+            cabeza = spinnerHeadType.getSelectedItem().toString(),
+            cabezaC = spinnerHeadColor.getSelectedItem().toString(),
+            torso = spinnerBodyColor.getSelectedItem().toString(),
+            brazoIzq = spinnerLeftArmType.getSelectedItem().toString(),
+            brazoIzqC = spinnerLeftArmColor.getSelectedItem().toString(),
+            brazoDer = spinnerRightArmType.getSelectedItem().toString(),
+            brazoDerC = spinnerRightArmColor.getSelectedItem().toString(),
+            pieIzq = spinnerLeftLegType.getSelectedItem().toString(),
+            pieIzqC = spinnerLeftLegColor.getSelectedItem().toString(),
+            pieDer = spinnerRightLegType.getSelectedItem().toString(),
+            pieDerC = spinnerRightLegColor.getSelectedItem().toString()
+        )
+
+        val jugadorService = JugadorService()
+        jugadorService.post(data) {
+            if (it == null) {
+                //Toast.makeText(applicationContext, "Error to call server request.", Toast.LENGTH_SHORT).show()
+                Toast(this).showCustomToast (
+                    getString(R.string.error_color),
+                    "${getString(R.string.error_server_500)}",
+                    this)
+
+            }
+            else {
+                if(it.estatus == 404){
+                    //Toast.makeText(applicationContext, "Incorrect user or password, try again.", Toast.LENGTH_SHORT).show()
+                    Toast(this).showCustomToast (
+                        getString(R.string.error_color),
+                        "${getString(R.string.error_save_404)}",
+                        this)
+                }
+                else {
+                    //Toast.makeText(applicationContext, "Loading information...", Toast.LENGTH_SHORT).show()
+                    Toast(this).showCustomToast (
+                        getString(R.string.success_color),
+                        "${getString(R.string.success_save_char)}",
+                        this)
+                    finish()
+                }
+            }
+        }
     }
 }
