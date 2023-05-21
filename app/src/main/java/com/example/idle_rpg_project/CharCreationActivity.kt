@@ -50,39 +50,102 @@ class CharCreationActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
     }
 
     private fun loadInputData() {
-        val spinnerHeadType = findViewById<Spinner>(R.id.spinner_head_type)
-        val spinnerHeadColor = findViewById<Spinner>(R.id.spinner_head_color)
-        val spinnerBodyColor = findViewById<Spinner>(R.id.spinner_body_color)
-
-        spinnerHeadType.onItemSelectedListener = this
-        spinnerHeadColor.onItemSelectedListener = this
-        spinnerBodyColor.onItemSelectedListener = this
-
         val adapterType: ArrayAdapter<CharSequence> = ArrayAdapter(this, android.R.layout.simple_spinner_item, types_characters)
         adapterType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         val adapterColor: ArrayAdapter<CharSequence> = ArrayAdapter(this, android.R.layout.simple_spinner_item, color_characters)
         adapterColor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
+        val spinnerHeadType = findViewById<Spinner>(R.id.spinner_head_type)
+        val spinnerLeftArmType = findViewById<Spinner>(R.id.spinner_left_arm_type)
+        val spinnerRightArmType = findViewById<Spinner>(R.id.spinner_right_arm_type)
+        val spinnerLeftLegType = findViewById<Spinner>(R.id.spinner_left_leg_type)
+        val spinnerRightLegType = findViewById<Spinner>(R.id.spinner_right_leg_type)
+
+        val spinnerHeadColor = findViewById<Spinner>(R.id.spinner_head_color)
+        val spinnerBodyColor = findViewById<Spinner>(R.id.spinner_body_color)
+        val spinnerLeftArmColor = findViewById<Spinner>(R.id.spinner_left_arm_color)
+        val spinnerRightArmColor = findViewById<Spinner>(R.id.spinner_right_arm_color)
+        val spinnerLeftLegColor = findViewById<Spinner>(R.id.spinner_left_leg_color)
+        val spinnerRightLegColor = findViewById<Spinner>(R.id.spinner_right_leg_color)
+
+        spinnerHeadType.onItemSelectedListener = this
+        spinnerLeftArmType.onItemSelectedListener = this
+        spinnerRightArmType.onItemSelectedListener = this
+        spinnerLeftLegType.onItemSelectedListener = this
+        spinnerRightLegType.onItemSelectedListener = this
+
+        spinnerHeadColor.onItemSelectedListener = this
+        spinnerBodyColor.onItemSelectedListener = this
+        spinnerLeftArmColor.onItemSelectedListener = this
+        spinnerRightArmColor.onItemSelectedListener = this
+        spinnerLeftLegColor.onItemSelectedListener = this
+        spinnerRightLegColor.onItemSelectedListener = this
+
         spinnerHeadType.adapter = adapterType
+        spinnerLeftArmType.adapter = adapterType
+        spinnerRightArmType.adapter = adapterType
+        spinnerLeftLegType.adapter = adapterType
+        spinnerRightLegType.adapter = adapterType
+
         spinnerHeadColor.adapter = adapterColor
         spinnerBodyColor.adapter = adapterColor
+        spinnerLeftArmColor.adapter = adapterColor
+        spinnerRightArmColor.adapter = adapterColor
+        spinnerLeftLegColor.adapter = adapterColor
+        spinnerRightLegColor.adapter = adapterColor
 
         val selectionHeadType = player.cabeza
+        val selectionLeftArmType = player.brazoIzq
+        val selectionRightArmType = player.brazoDer
+        val selectionLeftLegType = player.pieIzq
+        val selectionRightLegType = player.pieDer
+
         val selectionHeadColor = player.cabezaC
         val selectionBodyColor = player.torso
+        val selectionLeftArmColor = player.brazoIzqC
+        val selectionRightArmColor = player.brazoDerC
+        val selectionLeftLegColor = player.pieIzqC
+        val selectionRightLegColor = player.pieDerC
+
         val spinnerPositionHeadType: Int = adapterType.getPosition(selectionHeadType)
+        val spinnerPositionLeftArmType: Int = adapterType.getPosition(selectionLeftArmType)
+        val spinnerPositionRightArmType: Int = adapterType.getPosition(selectionRightArmType)
+        val spinnerPositionLeftLegType: Int = adapterType.getPosition(selectionLeftLegType)
+        val spinnerPositionRightLegType: Int = adapterType.getPosition(selectionRightLegType)
+
         val spinnerPositionHeadColor: Int = adapterColor.getPosition(selectionHeadColor)
         val spinnerPositionBodyColor: Int = adapterColor.getPosition(selectionBodyColor)
+        val spinnerPositionLeftArmColor: Int = adapterColor.getPosition(selectionLeftArmColor)
+        val spinnerPositionRightArmColor: Int = adapterColor.getPosition(selectionRightArmColor)
+        val spinnerPositionLeftLegColor: Int = adapterColor.getPosition(selectionLeftLegColor)
+        val spinnerPositionRightLegColor: Int = adapterColor.getPosition(selectionRightLegColor)
 
         spinnerHeadType.setSelection(spinnerPositionHeadType)
+        spinnerLeftArmType.setSelection(spinnerPositionLeftArmType)
+        spinnerRightArmType.setSelection(spinnerPositionRightArmType)
+        spinnerLeftLegType.setSelection(spinnerPositionLeftLegType)
+        spinnerRightLegType.setSelection(spinnerPositionRightLegType)
+
         spinnerHeadColor.setSelection(spinnerPositionHeadColor)
         spinnerBodyColor.setSelection(spinnerPositionBodyColor)
+        spinnerLeftArmColor.setSelection(spinnerPositionLeftArmColor)
+        spinnerRightArmColor.setSelection(spinnerPositionRightArmColor)
+        spinnerLeftLegColor.setSelection(spinnerPositionLeftLegColor)
+        spinnerRightLegColor.setSelection(spinnerPositionRightLegColor)
     }
 
-    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        Toast.makeText(this, "" + types_characters.get(position) + " Selected..", Toast.LENGTH_SHORT).show()
-        Log.e("test", parent.toString())
+    override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+//        Toast.makeText(this, "" + types_characters.get(position) + " Selected..", Toast.LENGTH_SHORT).show()
+//        Log.e("test", parent.toString())
 //        TODO("Not yet implemented")
+
+        when (parent.getId()) {
+            R.id.spinner_head_type -> {
+//                Toast.makeText(this, "" + types_characters.get(position) + " Selected..", Toast.LENGTH_SHORT).show()
+            }
+            R.id.spinner_head_color -> {}
+            R.id.spinner_head_color -> {}
+        }
     }
 
     override fun onNothingSelected(p0: AdapterView<*>?) {

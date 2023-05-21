@@ -116,6 +116,7 @@
 
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -157,9 +158,9 @@
                 <Spinner
                     android:id="@+id/spinner_head_type"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:backgroundTint="@color/primary"
-                    android:entries="@array/types"/>
+                    android:entries="@array/types" />
 
                 <TextView
                     android:id="@+id/txt_body_color"
@@ -172,7 +173,7 @@
                 <Spinner
                     android:id="@+id/spinner_head_color"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:layout_weight="1"
                     android:entries="@array/colors" />
             </LinearLayout>
@@ -213,7 +214,7 @@
                 <Spinner
                     android:id="@+id/spinner_body_color"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:layout_weight="1"
                     android:entries="@array/colors" />
             </LinearLayout>
@@ -254,7 +255,7 @@
                 <Spinner
                     android:id="@+id/spinner_left_arm_type"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:backgroundTint="@color/primary"
                     android:entries="@array/types" />
 
@@ -269,7 +270,7 @@
                 <Spinner
                     android:id="@+id/spinner_left_arm_color"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:layout_weight="1"
                     android:entries="@array/colors" />
             </LinearLayout>
@@ -310,7 +311,7 @@
                 <Spinner
                     android:id="@+id/spinner_right_arm_type"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:backgroundTint="@color/primary"
                     android:entries="@array/types" />
 
@@ -325,7 +326,7 @@
                 <Spinner
                     android:id="@+id/spinner_right_arm_color"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:layout_weight="1"
                     android:entries="@array/colors" />
             </LinearLayout>
@@ -366,7 +367,7 @@
                 <Spinner
                     android:id="@+id/spinner_left_leg_type"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:backgroundTint="@color/primary"
                     android:entries="@array/types" />
 
@@ -381,7 +382,7 @@
                 <Spinner
                     android:id="@+id/spinner_left_leg_color"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:layout_weight="1"
                     android:entries="@array/colors" />
             </LinearLayout>
@@ -422,7 +423,7 @@
                 <Spinner
                     android:id="@+id/spinner_right_leg_type"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:backgroundTint="@color/primary"
                     android:entries="@array/types" />
 
@@ -437,7 +438,7 @@
                 <Spinner
                     android:id="@+id/spinner_right_leg_color"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:layout_weight="1"
                     android:entries="@array/colors" />
             </LinearLayout>
