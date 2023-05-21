@@ -134,17 +134,126 @@ class CharCreationActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
         spinnerRightLegColor.setSelection(spinnerPositionRightLegColor)
     }
 
+    private fun drawImage(imageView: ImageView, params: String) {
+        val link = "https://movilesmx.000webhostapp.com/idle_rpg/images/jugador/${params}"
+
+        Glide.with(this).load(link).into(imageView)
+    }
+
     override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
 //        Toast.makeText(this, "" + types_characters.get(position) + " Selected..", Toast.LENGTH_SHORT).show()
 //        Log.e("test", parent.toString())
 //        TODO("Not yet implemented")
 
         when (parent.getId()) {
-            R.id.spinner_head_type -> {
-//                Toast.makeText(this, "" + types_characters.get(position) + " Selected..", Toast.LENGTH_SHORT).show()
+            R.id.spinner_head_type-> {
+                val img = findViewById<ImageView>(R.id.cabeza)
+                val spinnerType = findViewById<Spinner>(R.id.spinner_head_type)
+                val spinnerColor = findViewById<Spinner>(R.id.spinner_head_color)
+                val txtType: String = spinnerType.getSelectedItem().toString()
+                val txtColor: String = spinnerColor.getSelectedItem().toString()
+                val params = "head/${txtType}/${txtColor}.png"
+
+                drawImage(img, params)
             }
-            R.id.spinner_head_color -> {}
-            R.id.spinner_head_color -> {}
+            R.id.spinner_left_arm_type -> {
+                val img = findViewById<ImageView>(R.id.brazoIzq)
+                val spinnerType = findViewById<Spinner>(R.id.spinner_left_arm_type)
+                val spinnerColor = findViewById<Spinner>(R.id.spinner_left_arm_color)
+                val txtType: String = spinnerType.getSelectedItem().toString()
+                val txtColor: String = spinnerColor.getSelectedItem().toString()
+                val params = "left_arm/${txtType}/${txtColor}.png"
+
+                drawImage(img, params)
+            }
+            R.id.spinner_right_arm_type -> {
+                val img = findViewById<ImageView>(R.id.brazoDer)
+                val spinnerType = findViewById<Spinner>(R.id.spinner_right_arm_type)
+                val spinnerColor = findViewById<Spinner>(R.id.spinner_right_arm_color)
+                val txtType: String = spinnerType.getSelectedItem().toString()
+                val txtColor: String = spinnerColor.getSelectedItem().toString()
+                val params = "right_arm/${txtType}/${txtColor}.png"
+
+                drawImage(img, params)
+            }
+            R.id.spinner_left_leg_type -> {
+                val img = findViewById<ImageView>(R.id.pieIzq)
+                val spinnerType = findViewById<Spinner>(R.id.spinner_left_leg_type)
+                val spinnerColor = findViewById<Spinner>(R.id.spinner_left_leg_color)
+                val txtType: String = spinnerType.getSelectedItem().toString()
+                val txtColor: String = spinnerColor.getSelectedItem().toString()
+                val params = "left_leg/${txtType}/${txtColor}.png"
+
+                drawImage(img, params)
+            }
+            R.id.spinner_right_leg_type -> {
+                val img = findViewById<ImageView>(R.id.pieDer)
+                val spinnerType = findViewById<Spinner>(R.id.spinner_right_leg_type)
+                val spinnerColor = findViewById<Spinner>(R.id.spinner_right_leg_color)
+                val txtType: String = spinnerType.getSelectedItem().toString()
+                val txtColor: String = spinnerColor.getSelectedItem().toString()
+                val params = "right_leg/${txtType}/${txtColor}.png"
+
+                drawImage(img, params)
+            }
+            R.id.spinner_head_color -> {
+                val img = findViewById<ImageView>(R.id.cabeza)
+                val spinnerType = findViewById<Spinner>(R.id.spinner_head_type)
+                val spinnerColor = findViewById<Spinner>(R.id.spinner_head_color)
+                val txtType: String = spinnerType.getSelectedItem().toString()
+                val txtColor: String = spinnerColor.getSelectedItem().toString()
+                val params = "head/${txtType}/${txtColor}.png"
+
+                drawImage(img, params)
+            }
+            R.id.spinner_body_color -> {
+                val img = findViewById<ImageView>(R.id.torso)
+                val spinnerColor = findViewById<Spinner>(R.id.spinner_body_color)
+                val txtColor: String = spinnerColor.getSelectedItem().toString()
+                val params = "body/${txtColor}.png"
+
+                drawImage(img, params)
+            }
+            R.id.spinner_left_arm_color -> {
+                val img = findViewById<ImageView>(R.id.brazoIzq)
+                val spinnerType = findViewById<Spinner>(R.id.spinner_left_arm_type)
+                val spinnerColor = findViewById<Spinner>(R.id.spinner_left_arm_color)
+                val txtType: String = spinnerType.getSelectedItem().toString()
+                val txtColor: String = spinnerColor.getSelectedItem().toString()
+                val params = "left_arm/${txtType}/${txtColor}.png"
+
+                drawImage(img, params)
+            }
+            R.id.spinner_right_arm_color -> {
+                val img = findViewById<ImageView>(R.id.brazoDer)
+                val spinnerType = findViewById<Spinner>(R.id.spinner_right_arm_type)
+                val spinnerColor = findViewById<Spinner>(R.id.spinner_right_arm_color)
+                val txtType: String = spinnerType.getSelectedItem().toString()
+                val txtColor: String = spinnerColor.getSelectedItem().toString()
+                val params = "right_arm/${txtType}/${txtColor}.png"
+
+                drawImage(img, params)
+            }
+            R.id.spinner_left_leg_color -> {
+                val img = findViewById<ImageView>(R.id.pieIzq)
+                val spinnerType = findViewById<Spinner>(R.id.spinner_left_leg_type)
+                val spinnerColor = findViewById<Spinner>(R.id.spinner_left_leg_color)
+                val txtType: String = spinnerType.getSelectedItem().toString()
+                val txtColor: String = spinnerColor.getSelectedItem().toString()
+                val params = "left_leg/${txtType}/${txtColor}.png"
+
+                drawImage(img, params)
+            }
+            R.id.spinner_right_leg_color -> {
+                val img = findViewById<ImageView>(R.id.pieDer)
+                val spinnerType = findViewById<Spinner>(R.id.spinner_right_leg_type)
+                val spinnerColor = findViewById<Spinner>(R.id.spinner_right_leg_color)
+                val txtType: String = spinnerType.getSelectedItem().toString()
+                val txtColor: String = spinnerColor.getSelectedItem().toString()
+                val params = "right_leg/${txtType}/${txtColor}.png"
+
+                drawImage(img, params)
+            }
         }
     }
 
