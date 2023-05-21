@@ -52,9 +52,11 @@ class CharCreationActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
     private fun loadInputData() {
         val spinnerHeadType = findViewById<Spinner>(R.id.spinner_head_type)
         val spinnerHeadColor = findViewById<Spinner>(R.id.spinner_head_color)
+        val spinnerBodyColor = findViewById<Spinner>(R.id.spinner_body_color)
 
         spinnerHeadType.onItemSelectedListener = this
         spinnerHeadColor.onItemSelectedListener = this
+        spinnerBodyColor.onItemSelectedListener = this
 
         val adapterType: ArrayAdapter<CharSequence> = ArrayAdapter(this, android.R.layout.simple_spinner_item, types_characters)
         adapterType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -63,21 +65,24 @@ class CharCreationActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
 
         spinnerHeadType.adapter = adapterType
         spinnerHeadColor.adapter = adapterColor
-
+        spinnerBodyColor.adapter = adapterColor
 
         val selectionHeadType = player.cabeza
         val selectionHeadColor = player.cabezaC
+        val selectionBodyColor = player.torso
         val spinnerPositionHeadType: Int = adapterType.getPosition(selectionHeadType)
         val spinnerPositionHeadColor: Int = adapterColor.getPosition(selectionHeadColor)
+        val spinnerPositionBodyColor: Int = adapterColor.getPosition(selectionBodyColor)
 
         spinnerHeadType.setSelection(spinnerPositionHeadType)
         spinnerHeadColor.setSelection(spinnerPositionHeadColor)
+        spinnerBodyColor.setSelection(spinnerPositionBodyColor)
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-//        Toast.makeText(this, "" + types_characters.get(position) + " Selected..", Toast.LENGTH_SHORT).show()
-//        Log.e("test", parent.toString())
-        TODO("Not yet implemented")
+        Toast.makeText(this, "" + types_characters.get(position) + " Selected..", Toast.LENGTH_SHORT).show()
+        Log.e("test", parent.toString())
+//        TODO("Not yet implemented")
     }
 
     override fun onNothingSelected(p0: AdapterView<*>?) {
