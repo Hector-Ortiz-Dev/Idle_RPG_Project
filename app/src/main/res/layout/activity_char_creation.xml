@@ -126,7 +126,7 @@
             android:id="@+id/bodyContainer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="20dp">
 
             <TextView
                 android:id="@+id/body_textview"
@@ -155,12 +155,11 @@
                     android:textColor="@color/primary" />
 
                 <Spinner
-                    android:id="@+id/spinner_body_type"
+                    android:id="@+id/spinner_head_type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/primary"
-                    android:entries="@array/types"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    android:entries="@array/types"/>
 
                 <TextView
                     android:id="@+id/txt_body_color"
@@ -171,12 +170,11 @@
                     android:textColor="@color/primary" />
 
                 <Spinner
-                    android:id="@+id/spinner_body_color"
+                    android:id="@+id/spinner_head_color"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:entries="@array/colors"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    android:entries="@array/colors" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -184,7 +182,7 @@
             android:id="@+id/headContainer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="20dp">
 
             <TextView
                 android:id="@+id/head_textview"
@@ -205,22 +203,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/head_textview">
 
                 <TextView
-                    android:id="@+id/txt_head_type"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/select_type"
-                    android:textColor="@color/primary" />
-
-                <Spinner
-                    android:id="@+id/head_spinner"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/primary"
-                    android:entries="@array/types"
-                    tools:ignore="TouchTargetSizeCheck" />
-
-                <TextView
                     android:id="@+id/txt_head_color"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -229,12 +211,11 @@
                     android:textColor="@color/primary" />
 
                 <Spinner
-                    android:id="@+id/head_spinner3"
+                    android:id="@+id/spinner_body_color"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:entries="@array/colors"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    android:entries="@array/colors" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -242,7 +223,7 @@
             android:id="@+id/leftArmContainer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="20dp">
 
             <TextView
                 android:id="@+id/left_arm_textview"
@@ -275,8 +256,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/primary"
-                    android:entries="@array/types"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    android:entries="@array/types" />
 
                 <TextView
                     android:id="@+id/txt_left_arm_color"
@@ -291,8 +271,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:entries="@array/colors"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    android:entries="@array/colors" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -300,7 +279,7 @@
             android:id="@+id/rightArmContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="20dp">
 
             <TextView
                 android:id="@+id/right_arm_textview"
@@ -333,8 +312,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/primary"
-                    android:entries="@array/types"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    android:entries="@array/types" />
 
                 <TextView
                     android:id="@+id/txt_right_arm_color"
@@ -349,8 +327,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:entries="@array/colors"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    android:entries="@array/colors" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -358,7 +335,7 @@
             android:id="@+id/leftLegContainer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="20dp">
 
             <TextView
                 android:id="@+id/left_leg_textview"
@@ -391,8 +368,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/primary"
-                    android:entries="@array/types"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    android:entries="@array/types" />
 
                 <TextView
                     android:id="@+id/txt_left_leg_color"
@@ -407,8 +383,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:entries="@array/colors"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    android:entries="@array/colors" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -416,7 +391,7 @@
             android:id="@+id/rightLegContainer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="20dp">
 
             <TextView
                 android:id="@+id/right_leg_textview"
@@ -449,8 +424,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/primary"
-                    android:entries="@array/types"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    android:entries="@array/types" />
 
                 <TextView
                     android:id="@+id/txt_right_leg_color"
@@ -465,8 +439,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:entries="@array/colors"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    android:entries="@array/colors" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>

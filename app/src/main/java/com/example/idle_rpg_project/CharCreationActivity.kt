@@ -1,19 +1,32 @@
 package com.example.idle_rpg_project
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageView
+import android.util.Log
+import android.view.View
+import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.idle_rpg_project.models.Jugador
 
 @Suppress("DEPRECATION")
-class CharCreationActivity : AppCompatActivity() {
+class CharCreationActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
+    var player: Jugador = Jugador()
+    var types_characters = arrayOf("Base", "Bone", "Cream", "Girl", "Octo", "Robot", "Tri", "Yin")
+    var color_characters = arrayOf("blue", "green", "orange", "pink", "purple", "red", "white", "yellow")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_char_creation)
 
-        val player = intent.getSerializableExtra("player") as Jugador
+        player = intent.getSerializableExtra("player") as Jugador
 
+        loadImages()
+
+        loadInputData()
+
+    }
+
+    private fun loadImages() {
         val imgHead = findViewById<ImageView>(R.id.cabeza)
         val imgTorso = findViewById<ImageView>(R.id.torso)
         val imgBrazoDer = findViewById<ImageView>(R.id.brazoDer)
@@ -34,5 +47,40 @@ class CharCreationActivity : AppCompatActivity() {
         Glide.with(this).load(mediaBrazoIzq).into(imgBrazoIzq)
         Glide.with(this).load(mediaPieDer).into(imgPieDer)
         Glide.with(this).load(mediaPieIzq).into(imgPieIzq)
+    }
+
+    private fun loadInputData() {
+        val spinnerHeadType = findViewById<Spinner>(R.id.spinner_head_type)
+        val spinnerHeadColor = findViewById<Spinner>(R.id.spinner_head_color)
+
+        spinnerHeadType.onItemSelectedListener = this
+        spinnerHeadColor.onItemSelectedListener = this
+
+        val adapterType: ArrayAdapter<CharSequence> = ArrayAdapter(this, android.R.layout.simple_spinner_item, types_characters)
+        adapterType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        val adapterColor: ArrayAdapter<CharSequence> = ArrayAdapter(this, android.R.layout.simple_spinner_item, color_characters)
+        adapterColor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        spinnerHeadType.adapter = adapterType
+        spinnerHeadColor.adapter = adapterColor
+
+
+        val selectionHeadType = player.cabeza
+        val selectionHeadColor = player.cabezaC
+        val spinnerPositionHeadType: Int = adapterType.getPosition(selectionHeadType)
+        val spinnerPositionHeadColor: Int = adapterColor.getPosition(selectionHeadColor)
+
+        spinnerHeadType.setSelection(spinnerPositionHeadType)
+        spinnerHeadColor.setSelection(spinnerPositionHeadColor)
+    }
+
+    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+//        Toast.makeText(this, "" + types_characters.get(position) + " Selected..", Toast.LENGTH_SHORT).show()
+//        Log.e("test", parent.toString())
+        TODO("Not yet implemented")
+    }
+
+    override fun onNothingSelected(p0: AdapterView<*>?) {
+        TODO("Not yet implemented")
     }
 }
