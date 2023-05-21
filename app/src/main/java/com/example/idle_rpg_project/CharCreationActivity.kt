@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.idle_rpg_project.models.Jugador
@@ -50,7 +51,33 @@ class CharCreationActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
         loadInputData()
 
         val btnConfirm = findViewById<Button>(R.id.confirm_button)
+        val btnCancel = findViewById<Button>(R.id.cancel_button)
+
         btnConfirm.setOnClickListener { saveChangesCustomCharacter() }
+        btnCancel.setOnClickListener { onBackPressed() }
+    }
+
+    override fun onBackPressed() {
+        val builder = AlertDialog.Builder(this)
+        //set title for alert dialog
+        builder.setTitle(R.string.discard_changes) //R.string.dialogTitle
+        //set message for alert dialog
+        builder.setMessage(R.string.sure_discard_changes)
+        builder.setIcon(android.R.drawable.ic_dialog_alert)
+
+        builder.setPositiveButton(R.string.yes){ _, _ ->
+            finish()
+        }
+        //performing negative action
+        builder.setNegativeButton(R.string.no){ _, _ ->
+
+        }
+
+        // Create the AlertDialog
+        val alertDialog: AlertDialog = builder.create()
+        // Set other dialog properties
+        alertDialog.setCancelable(false)
+        alertDialog.show()
     }
 
     private fun initializeViews() {

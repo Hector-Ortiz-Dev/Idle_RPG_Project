@@ -58,6 +58,7 @@
     <string name="options">Options</string>
     <string name="logout">Logout</string>
     <string name="exit">Exit</string>
+    <string name="discard_changes">Discard Changes</string>
 
     <!--Response to questions-->
     <string name="yes">Yes</string>
@@ -79,5 +80,6 @@
     <!--Questions-->
     <string name="sure_logout">Are you sure you want to log out?</string>
     <string name="sure_exit">Are you sure you want to exit app?</string>
+    <string name="sure_discard_changes">Do you want discard changes?</string>
 
 </resources>
