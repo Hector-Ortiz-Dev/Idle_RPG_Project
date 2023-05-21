@@ -50,6 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/head_textview"
+        android:backgroundTint="@color/primary"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="16dp"
         android:entries="@array/head_types"
@@ -62,6 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/select_body"
+        android:textColor="@color/primary"
         android:textSize="18sp"
         android:textStyle="bold"
         android:layout_below="@id/head_spinner"
@@ -73,6 +75,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/body_textview"
+        android:backgroundTint="@color/primary"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="16dp"
         android:entries="@array/body_types"
@@ -84,6 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/select_class"
+        android:textColor="@color/primary"
         android:textSize="18sp"
         android:textStyle="bold"
         android:layout_below="@id/body_spinner"
@@ -95,6 +99,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/class_textview"
+        android:backgroundTint="@color/primary"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="16dp"
         android:entries="@array/class_types"
@@ -106,6 +111,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/select_gender"
+        android:textColor="@color/primary"
         android:textSize="18sp"
         android:textStyle="bold"
         android:layout_below="@id/class_spinner"
@@ -127,6 +133,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Male"
+            android:textColor="@color/primary"
             tools:ignore="TouchTargetSizeCheck" />
 
         <RadioButton
@@ -134,6 +141,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Female"
+            android:textColor="@color/primary"
             tools:ignore="TouchTargetSizeCheck" />
 
     </RadioGroup>

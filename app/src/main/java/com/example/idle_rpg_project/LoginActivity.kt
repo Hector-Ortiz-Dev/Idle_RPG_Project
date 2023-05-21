@@ -19,8 +19,10 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         val loginButton = findViewById<Button>(R.id.login_button)
+        val registerButton = findViewById<Button>(R.id.register_button)
 
         loginButton.setOnClickListener { login() }
+        registerButton.setOnClickListener { register() }
 
 //        val db = DataBaseHandler(this)
 //        val test = db.readData()
@@ -56,8 +58,14 @@ class LoginActivity : AppCompatActivity() {
                     val intent = Intent(this, MainActivity::class.java)
                     intent.putExtra("user", data);
                     startActivity(intent)
+                    finish()
                 }
             }
         }
+    }
+
+    private fun register() {
+        val intent = Intent(this, SignInActivity::class.java)
+        startActivity(intent)
     }
 }

@@ -28,20 +28,26 @@
         android:id="@+id/email_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/primary"
         android:hint="@string/email_hint"
-        android:textColor="@color/primary"
         android:inputType="textEmailAddress"
         android:padding="8dp"
-        android:layout_marginTop="32dp"/>
+        android:textColor="@color/primary"
+        android:textColorHint="@color/textHint"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/password_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/primary"
         android:hint="@string/password_hint"
-        android:textColor="@color/primary"
         android:inputType="textPassword"
-        android:padding="8dp"/>
+        android:padding="8dp"
+        android:textColor="@color/primary"
+        android:textColorHint="@color/textHint"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/login_button"

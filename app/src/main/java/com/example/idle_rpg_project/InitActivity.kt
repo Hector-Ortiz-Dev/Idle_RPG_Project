@@ -37,9 +37,9 @@ class InitActivity : AppCompatActivity() {
             Handler().postDelayed({
                 val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
+                finish()
             }, 500)
         }
-
 
         //val username = cursor.getString(cursor.getColumnIndex(DBHelper.USERNAME_COL))
 
@@ -60,6 +60,7 @@ class InitActivity : AppCompatActivity() {
                 Handler().postDelayed({
                     val intent = Intent(this, LoginActivity::class.java)
                     startActivity(intent)
+                    finish()
                 }, 500)
             }
             else {
@@ -69,6 +70,7 @@ class InitActivity : AppCompatActivity() {
                     Handler().postDelayed({
                         val intent = Intent(this, LoginActivity::class.java)
                         startActivity(intent)
+                        finish()
                     }, 500)
                 }
                 else {
@@ -79,6 +81,7 @@ class InitActivity : AppCompatActivity() {
                     val intent = Intent(this, MainActivity::class.java)
                     intent.putExtra("user", data)
                     startActivity(intent)
+                    finish()
                 }
             }
         }
