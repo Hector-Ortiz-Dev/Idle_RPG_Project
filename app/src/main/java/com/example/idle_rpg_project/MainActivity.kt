@@ -19,13 +19,14 @@ import showCustomToast
 @Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
 
+    var user = Usuario()
     var player = Jugador()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
         // Load user
-        val user = intent.getSerializableExtra("user") as Usuario
+        user = intent.getSerializableExtra("user") as Usuario
         // Load username in View
         val lblUsername = findViewById<TextView>(R.id.username_textview)
         lblUsername.text = user.username
@@ -36,18 +37,18 @@ class MainActivity : AppCompatActivity() {
         val btnLogout = findViewById<ImageButton>(R.id.button_exit)
         btnLogout.setOnClickListener { showAlertDialog() }
 
-        val btnCustomChar = findViewById<ImageButton>(R.id.button_options)
-        btnCustomChar.setOnClickListener { openCharacterActivity() }
+        val btnSword = findViewById<ImageButton>(R.id.button_sword)
+        btnSword.setOnClickListener { openCharacterActivity() }
     }
 
     override fun onResume() {
         super.onResume()
-        // Load user
-        val user = intent.getSerializableExtra("user") as Usuario
-        // Load username in View
-        val lblUsername = findViewById<TextView>(R.id.username_textview)
-        lblUsername.text = user.username
-        // Load user data with character (coins, exp, etc...)
+//        // Load user
+//        val user = intent.getSerializableExtra("user") as Usuario
+//        // Load username in View
+//        val lblUsername = findViewById<TextView>(R.id.username_textview)
+//        lblUsername.text = user.username
+//        // Load user data with character (coins, exp, etc...)
         val id = user.id
         getJugador(id!!)
     }
@@ -110,20 +111,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openCharacterActivity() {
-        val intent = Intent(this, CharCreationActivity::class.java)
-        intent.putExtra("player", player);
+        val intent = Intent(this, CharacterActivity::class.java)
+        intent.putExtra("user", user)
+        intent.putExtra("player", player)
         startActivity(intent)
     }
 
-    fun getJugador(id: Int) {
+    private fun getJugador(id: Int) {
         val jugadorService = JugadorService()
         jugadorService.getById(id) {
             if (it == null) {
-                Toast(this).showCustomToast ("#DD0000","Error to call server request.", this)
+                Toast(this).showCustomToast (getString(R.string.error_color),"${getString(R.string.error_server_500)}", this)
             }
             else {
                 if(it.estatus == 404){
-                    Toast(this).showCustomToast ("#DD0000","Incorrect user or password, try again.", this)
+                    Toast(this).showCustomToast (getString(R.string.error_color), getString(R.string.error_save_404), this)
                 }
                 else{
                     player = it.records[0]
