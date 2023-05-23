@@ -306,7 +306,7 @@ class CharCreationActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
     private fun saveChangesCustomCharacter() {
         val data = Jugador(
             method = "setCustomCharacter",
-            id = player.id,
+            id = player.idUsuario,
             cabeza = spinnerHeadType.getSelectedItem().toString(),
             cabezaC = spinnerHeadColor.getSelectedItem().toString(),
             torso = spinnerBodyColor.getSelectedItem().toString(),

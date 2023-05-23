@@ -21,6 +21,7 @@ class LoginActivity : AppCompatActivity() {
         val registerButton = findViewById<Button>(R.id.register_button)
 
         loginButton.setOnClickListener { login() }
+        registerButton.setOnClickListener { register() }
     }
 
     private fun login() {

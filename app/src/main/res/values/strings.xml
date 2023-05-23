@@ -11,7 +11,7 @@
     <string name="username">Username</string>
     <string name="confirm_password">Confirm password</string>
     <string name="confirm_new_password">Confirm new password</string>
-    <string name="character_creation">Character Creation</string>
+    <string name="custom_character">Custom Character</string>
     <string name="select_head">Select Head</string>
     <string name="select_body">Select Body</string>
     <string name="select_left_arm">Select Left Arm</string>
@@ -72,6 +72,7 @@
     <string name="error_save_404">Something gone wrong, try again.</string>
     <string name="success_loading">Loading information...</string>
     <string name="success_save_char">Changes saved.</string>
+    <string name="success_user_created">User created.</string>
 
     <!--Color response-->
     <string name="error_color">#BB0000</string>
