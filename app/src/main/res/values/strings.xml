@@ -9,9 +9,9 @@
     <string name="name">Name</string>
     <string name="last_name">Last name</string>
     <string name="username">Username</string>
-    <string name="repeat_password">Repeat password</string>
-    <string name="repeat_new_password">Repeat new password</string>
-    <string name="custom_character">Custom Character</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="confirm_new_password">Confirm new password</string>
+    <string name="character_creation">Character Creation</string>
     <string name="select_head">Select Head</string>
     <string name="select_body">Select Body</string>
     <string name="select_left_arm">Select Left Arm</string>
@@ -50,7 +50,7 @@
 
     <string name="edit_profile">Edit Profile</string>
     <string name="new_password_input">New password</string>
-    <string name="repeat_new_password_input">Repeat new password</string>
+    <string name="confirm_new_password_input">Repeat new password</string>
 
     <string name="guild">Guild</string>
     <string name="shop">Shop</string>

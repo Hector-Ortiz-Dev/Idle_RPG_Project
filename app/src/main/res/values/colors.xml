@@ -19,4 +19,10 @@
     <color name="primary">#57463C</color>
     <color name="secondary">#967969</color>
     <color name="error">#BB0000</color>
+    <color name="success">#3F7B35</color>
+    <color name="warning">#FFBB33</color>
+    <color name="info">#33B5E5</color>
+    <color name="light">#FFFFFF</color>
+    <color name="dark">#000000</color>
+    <color name="textHint">#777676</color>
 </resources>

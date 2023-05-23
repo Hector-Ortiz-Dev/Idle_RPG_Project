@@ -18,6 +18,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         val loginButton = findViewById<Button>(R.id.login_button)
+        val registerButton = findViewById<Button>(R.id.register_button)
 
         loginButton.setOnClickListener { login() }
     }
@@ -89,5 +90,10 @@ class LoginActivity : AppCompatActivity() {
         // Set other dialog properties
         alertDialog.setCancelable(false)
         alertDialog.show()
+    }
+
+    private fun register() {
+        val intent = Intent(this, SignInActivity::class.java)
+        startActivity(intent)
     }
 }
