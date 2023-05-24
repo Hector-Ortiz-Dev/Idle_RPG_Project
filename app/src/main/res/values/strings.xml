@@ -43,6 +43,13 @@
         <item>Yin</item>
     </string-array>
 
+    <string name="guildSize">"GuildSize"</string>
+    <string-array name="guildSize">
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
+    </string-array>
+
     <string name="head_prompt">Head prompt</string>
 
     <string name="select_class">Select Class</string>
