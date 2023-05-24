@@ -1,30 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center_horizontal"
     android:background="@color/background"
     tools:context=".LoginActivity"
     >
 
     <ImageView
-        android:layout_width="match_parent"
+        android:id="@+id/logo_imageview"
+        android:layout_width="wrap_content"
         android:layout_height="363dp"
         android:contentDescription="@string/logo"
         android:src="@drawable/logo" />
 
     <TextView
+        android:id="@+id/login_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/logo_imageview"
         android:text="@string/login"
         android:textSize="32sp"
         android:textColor="@color/primary"
+        android:layout_centerHorizontal="true"
         android:textStyle="bold"
         android:layout_marginTop="16dp"/>
 
-    <EditText
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_title"
+        android:paddingRight="50dp"
+        android:paddingLeft="50dp"
+        android:orientation="vertical">
+
+        <EditText
         android:id="@+id/email_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -35,9 +45,10 @@
         android:padding="8dp"
         android:textColor="@color/primary"
         android:textColorHint="@color/textHint"
-        tools:ignore="TouchTargetSizeCheck" />
+        tools:ignore="TouchTargetSizeCheck"
+            android:autofillHints="" />
 
-    <EditText
+        <EditText
         android:id="@+id/password_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,24 +58,26 @@
         android:padding="8dp"
         android:textColor="@color/primary"
         android:textColorHint="@color/textHint"
-        tools:ignore="TouchTargetSizeCheck" />
+        tools:ignore="TouchTargetSizeCheck"
+            android:autofillHints="" />
 
-    <Button
-        android:id="@+id/login_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/login"
-        android:layout_marginTop="32dp"
-        android:textColor="@android:color/white"
-        android:background="@color/accept"/>
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="32dp"
+            android:background="@color/accept"
+            android:text="@string/login"
+            android:textColor="@android:color/white" />
 
-    <Button
-        android:id="@+id/register_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/register"
-        android:layout_marginTop="16dp"
-        android:textColor="@android:color/white"
-        android:background="@color/primary"/>
+        <Button
+            android:id="@+id/register_button"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/primary"
+            android:text="@string/register"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

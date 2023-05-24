@@ -1,18 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary"
+    android:background="@color/background"
     android:padding="10dp"
     tools:context=".CharacterActivity">
 
+    <LinearLayout
+        android:id="@+id/layoutCharacter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/windowPrimary"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="80dp"
+        android:paddingRight="80dp"
+        android:layout_marginTop="12dp"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <TextView
+        android:id="@+id/txtUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="32dp"
+        android:text="MiinishBat" />
+
+        <TextView
+        android:id="@+id/txtLevel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/txtUsername"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+            android:textAlignment="center"
+            android:textSize="24dp"
+            android:text="Lvl. 12" />
+
+    </LinearLayout>
+
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/character"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="12dp"
+        android:padding="0dp"
+        android:background="@color/windowSecondary"
+        android:layout_below="@+id/layoutCharacter"
+        android:layout_centerHorizontal="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -87,143 +129,240 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
+    <Button
+        android:id="@+id/btnCustomCharacter"
         android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:layout_below="@+id/character"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:background="@color/primary"
+        android:padding="10dp"
+        android:text="Custom"
+        android:textColor="@color/white"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        tools:ignore="TouchTargetSizeCheck,TextSizeCheck" />
+
+    <LinearLayout
+        android:id="@+id/layoutStats"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_below="@+id/btnCustomCharacter"
+        android:layout_marginTop="24dp">
 
-        <TextView
-            android:id="@+id/textView01"
+    <!-- Stats -->
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:padding="24dp"
+        android:background="@color/primary"
+        >
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="User: " />
+            android:layout_weight="1"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/textView02"
+
+            <TextView
+                android:id="@+id/txtExpT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Exp:"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/txtCoinsT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Coins: "
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/txtHpT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="HP:"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/txtAtkT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Atk:"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/txtDefT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Def:"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/txtSpeedT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Spd:"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Exp: " />
+            android:layout_weight="1"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/textView03"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Coins: " />
 
-        <TextView
-            android:id="@+id/textView04"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="HP Max: " />
+            <TextView
+                android:id="@+id/txtExp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="[exp]" />
 
-        <TextView
-            android:id="@+id/textView05"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="HP: " />
+            <TextView
+                android:id="@+id/txtCoins"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_marginTop="16dp"
+                android:text="[coins]" />
 
-        <TextView
-            android:id="@+id/textView06"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="ATK:" />
+            <TextView
+                android:id="@+id/txtHp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/white"
+                android:text="[hp]" />
 
-        <TextView
-            android:id="@+id/textView07"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="DEF: " />
+            <TextView
+                android:id="@+id/txtAtk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/white"
+                android:text="[atk]" />
 
-        <TextView
-            android:id="@+id/textView08"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="SPEED: " />
+            <TextView
+                android:id="@+id/txtDef"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/white"
+                android:text="[def]" />
+
+            <TextView
+                android:id="@+id/txtSpeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/white"
+                android:text="[spd]" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
+    <!-- Weapon -->
+
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="12dp"
         android:orientation="vertical"
-        app:layout_constraintStart_toEndOf="@+id/linearLayout2"
-        app:layout_constraintTop_toTopOf="parent">
+        android:padding="0dp"
+        android:background="@color/primary"
+        >
 
         <TextView
-            android:id="@+id/txtUsername"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="username" />
+            android:text="Weapon"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/weapon"
+            android:layout_width="wrap_content"
+            android:layout_height="61dp"
+            android:layout_marginTop="12dp"
+            android:layout_gravity="center"
+            tools:srcCompat="@tools:sample/avatars"/>
 
         <TextView
-            android:id="@+id/txtExp"
+            android:id="@+id/txtWeapon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="exp" />
+            android:layout_marginTop="12dp"
+            android:layout_gravity="center"
+            android:text="[weapon]"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/txtCoins"
+            android:id="@+id/txtWeaponStats"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="coins" />
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:text="Atk +15"
+            android:textColor="@color/white"
+            android:textSize="14dp"
+            tools:ignore="TextSizeCheck" />
 
         <TextView
-            android:id="@+id/txtHpMax"
+            android:id="@+id/txtWeaponStatsDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="hp max" />
+            android:layout_gravity="center"
+            android:text="Hp +20"
+            android:textColor="@color/white"
+            android:textSize="14dp"
+            tools:ignore="TextSizeCheck,TextSizeCheck" />
 
-        <TextView
-            android:id="@+id/txtHp"
+        <Button
+            android:id="@+id/btnWeapon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="hp" />
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:text="Change weapon"
+            android:textColor="@color/white"
+            android:textSize="14dp"
+            tools:ignore="TextSizeCheck" />
 
-        <TextView
-            android:id="@+id/txtAtk"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="atk" />
-
-        <TextView
-            android:id="@+id/txtDef"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="def" />
-
-        <TextView
-            android:id="@+id/txtSpeed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="spd" />
+    </LinearLayout>
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnCustomCharacter"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnBack"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        android:layout_below="@+id/layoutStats"
+        android:layout_marginTop="24dp"
+        android:background="@color/cancel1"
+        android:text="Back"
+        android:textColor="@color/white"
+        android:textSize="14dp"
+        tools:ignore="TextSizeCheck" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

@@ -18,7 +18,6 @@ class CharacterActivity : AppCompatActivity() {
     private lateinit var txtUser: TextView
     private lateinit var txtExp: TextView
     private lateinit var txtCoins: TextView
-    private lateinit var txtHpMax: TextView
     private lateinit var txtHp: TextView
     private lateinit var txtAtk: TextView
     private lateinit var txtDef: TextView
@@ -55,7 +54,6 @@ class CharacterActivity : AppCompatActivity() {
         txtUser = findViewById(R.id.txtUsername)
         txtExp = findViewById(R.id.txtExp)
         txtCoins = findViewById(R.id.txtCoins)
-        txtHpMax = findViewById(R.id.txtHpMax)
         txtHp = findViewById(R.id.txtHp)
         txtAtk = findViewById(R.id.txtAtk)
         txtDef = findViewById(R.id.txtDef)
@@ -74,8 +72,7 @@ class CharacterActivity : AppCompatActivity() {
         txtUser.text = user.username
         txtExp.text = player.exp.toString()
         txtCoins.text = player.monedas.toString()
-        txtHpMax.text = player.hp_max.toString()
-        txtHp.text = player.hp.toString()
+        txtHp.text = player.hp.toString() + "/" + player.hp_max.toString()
         txtAtk.text = player.atk.toString()
         txtDef.text = player.def.toString()
         txtSpd.text = player.spd.toString()
