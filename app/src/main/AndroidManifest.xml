@@ -15,6 +15,12 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".GuildRequestsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GuildActivity"
+            android:exported="false" />
+        <activity
             android:name=".CreateGuildActivity"
             android:exported="false" />
         <activity

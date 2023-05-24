@@ -338,17 +338,6 @@
             android:textSize="14dp"
             tools:ignore="TextSizeCheck,TextSizeCheck" />
 
-        <Button
-            android:id="@+id/btnWeapon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="12dp"
-            android:text="Change weapon"
-            android:textColor="@color/white"
-            android:textSize="14dp"
-            tools:ignore="TextSizeCheck" />
-
     </LinearLayout>
 
     </LinearLayout>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".GuildActivity">
+
+    <LinearLayout
+        android:id="@+id/layoutGuildTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/secondary"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="80dp"
+        android:paddingRight="80dp"
+        android:layout_marginTop="12dp"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/guildNameTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="24dp"
+            android:text="[Guild Name]" />
+
+        <TextView
+            android:id="@+id/guildLevelTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/txtUsername"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:textSize="24dp"
+            android:text="[Lvl. 2]" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutGuildInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layoutGuildTitle"
+        android:background="@color/primary"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginLeft="32dp"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtGuildExp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Guild Exp: [ 0 / 100 ]"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
+            android:id="@+id/txtMembers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Members [ 1 / 10 ]"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/txtGuildMaster"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Guild Master: [ Username ]"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtGuildMembers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Members: "
+        android:textStyle="bold"
+        android:textColor="@color/primary"
+        android:textSize="20dp"
+        android:layout_below="@+id/layoutGuildInfo"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="32dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:itemCount="5"
+        android:layout_below="@id/txtGuildMembers"
+        tools:listitem="@layout/card_view_design" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/cancel1"
+            android:text="Back"
+            android:textColor="@color/white"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:ignore="TextSizeCheck" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>
