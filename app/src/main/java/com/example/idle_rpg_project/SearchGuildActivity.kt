@@ -1,5 +1,6 @@
 package com.example.idle_rpg_project
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -28,7 +29,6 @@ class SearchGuildActivity : AppCompatActivity() {
 
     private lateinit var btnCreate: Button
     private lateinit var txtSearch: EditText
-    private lateinit var btnSearch: Button
     private lateinit var recyclerview: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +42,8 @@ class SearchGuildActivity : AppCompatActivity() {
         initializeViews()
 
         getGremios()
+
+        btnCreate.setOnClickListener { openCreateGuildActivity() }
 
         txtSearch.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {}
@@ -71,6 +73,13 @@ class SearchGuildActivity : AppCompatActivity() {
 
         // getting the recyclerview by its id
         recyclerview = findViewById<RecyclerView>(R.id.recyclerview_gremio)
+    }
+
+    private fun openCreateGuildActivity() {
+        val intent = Intent(this, CreateGuildActivity::class.java)
+        intent.putExtra("user", user)
+        startActivity(intent)
+        finish()
     }
 
     fun getGremios() {

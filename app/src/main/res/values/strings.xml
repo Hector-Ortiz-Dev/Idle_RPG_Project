@@ -45,9 +45,9 @@
 
     <string name="guildSize">"GuildSize"</string>
     <string-array name="guildSize">
-        <item>Small</item>
-        <item>Medium</item>
-        <item>Large</item>
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
     </string-array>
 
     <string name="head_prompt">Head prompt</string>
