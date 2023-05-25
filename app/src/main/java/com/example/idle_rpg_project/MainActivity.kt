@@ -163,23 +163,36 @@ class MainActivity : AppCompatActivity() {
 
     private fun openGuildActivity() {
         if(user.idGremio == null) {
-            Toast(this).showCustomToast (
-                getString(R.string.success_color),
-                "Se abre lista de gremios",
-                this)
+            val intent = Intent(this, SearchGuildActivity::class.java)
+            intent.putExtra("user", user)
+            startActivity(intent)
+
+//            Toast(this).showCustomToast (
+//                getString(R.string.success_color),
+//                "Se abre lista de gremios",
+//                this)
         }
         else {
-            if(user.lider == 1) {
-                Toast(this).showCustomToast (
-                    getString(R.string.success_color),
-                    "Se abre lider gremio",
-                    this)
-            }
-            else if(user.espera == 1) {
+            if(user.espera == 1) {
                 Toast(this).showCustomToast (
                     getString(R.string.success_color),
                     "Estas en espera de un gremio",
                     this)
+            }
+            else if(user.lider == 1) {
+                val intent = Intent(this, GuildActivity::class.java)
+                intent.putExtra("user", user)
+                startActivity(intent)
+
+//                Toast(this).showCustomToast (
+//                    getString(R.string.success_color),
+//                    "Se abre lider gremio",
+//                    this)
+            }
+            else if(user.lider == 0){
+                val intent = Intent(this, GuildActivity::class.java)
+                intent.putExtra("user", user)
+                startActivity(intent)
             }
         }
 

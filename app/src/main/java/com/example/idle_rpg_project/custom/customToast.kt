@@ -25,7 +25,7 @@ fun Toast.showCustomToast(color: String, message: String, activity: Activity)
 
     // use the application extension function
     this.apply {
-        //setGravity(Gravity.BOTTOM, 0, 40)
+        setGravity(Gravity.TOP, 0, 40)
         duration = Toast.LENGTH_LONG
         view = layout
         show()
