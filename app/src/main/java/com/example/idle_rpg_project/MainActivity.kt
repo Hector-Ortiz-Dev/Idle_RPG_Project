@@ -4,10 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.bumptech.glide.Glide
 import com.example.idle_rpg_project.models.Jugador
@@ -34,10 +31,12 @@ class MainActivity : AppCompatActivity() {
         val id = user.id
         getJugador(id!!)
 
+        val btnGuild = findViewById<ImageButton>(R.id.button_guild)
         val btnLogout = findViewById<ImageButton>(R.id.button_exit)
-        btnLogout.setOnClickListener { showAlertDialog() }
-
         val btnSword = findViewById<ImageButton>(R.id.button_sword)
+
+        btnGuild.setOnClickListener { openGuildActivity() }
+        btnLogout.setOnClickListener { showAlertDialog() }
         btnSword.setOnClickListener { openCharacterActivity() }
     }
 
@@ -160,5 +159,33 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun openGuildActivity() {
+        if(user.idGremio == null) {
+            Toast(this).showCustomToast (
+                getString(R.string.success_color),
+                "Se abre lista de gremios",
+                this)
+        }
+        else {
+            if(user.lider == 1) {
+                Toast(this).showCustomToast (
+                    getString(R.string.success_color),
+                    "Se abre lider gremio",
+                    this)
+            }
+            else if(user.espera == 1) {
+                Toast(this).showCustomToast (
+                    getString(R.string.success_color),
+                    "Estas en espera de un gremio",
+                    this)
+            }
+        }
+
+//        val intent = Intent(this, CharacterActivity::class.java)
+//        intent.putExtra("user", user)
+//        intent.putExtra("player", player)
+//        startActivity(intent)
     }
 }

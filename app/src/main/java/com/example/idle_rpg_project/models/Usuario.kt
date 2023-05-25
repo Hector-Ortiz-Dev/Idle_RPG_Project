@@ -12,6 +12,6 @@ data class Usuario(
     val contrasena:String? = null,
     val urlImagen:String? = null,
     val idGremio:Int? = null,
-    val espera:Boolean? = null,
-    val lider:Boolean? = null) : Serializable {
+    val espera:Int? = null,
+    val lider:Int? = null) : Serializable {
 }
