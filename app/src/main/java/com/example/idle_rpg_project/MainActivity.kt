@@ -3,6 +3,7 @@ package com.example.idle_rpg_project
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
@@ -10,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.example.idle_rpg_project.models.Jugador
 import com.example.idle_rpg_project.models.Usuario
 import com.example.idle_rpg_project.services.JugadorService
+import com.example.idle_rpg_project.services.UsuarioService
 import com.example.idle_rpg_project.utils.DBHelper
 import showCustomToast
 
@@ -49,6 +51,7 @@ class MainActivity : AppCompatActivity() {
 //        lblUsername.text = user.username
 //        // Load user data with character (coins, exp, etc...)
         val id = user.id
+        getUserById(id!!)
         getJugador(id!!)
     }
 
@@ -114,6 +117,25 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra("user", user)
         intent.putExtra("player", player)
         startActivity(intent)
+    }
+
+    private fun getUserById(id: Int) {
+
+        val usuarioService = UsuarioService()
+
+        usuarioService.getById(id) {
+            if (it == null) {
+                Toast(this).showCustomToast ("#DD0000",getString(R.string.error_server_500), this)
+            }
+            else {
+                if(it.estatus == 404){
+                    Toast(this).showCustomToast ("#DD0000", getString(R.string.error_save_404), this)
+                }
+                else {
+                    user = it.records[0]
+                }
+            }
+        }
     }
 
     private fun getJugador(id: Int) {

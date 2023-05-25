@@ -13,5 +13,6 @@ data class Usuario(
     val urlImagen:String? = null,
     val idGremio:Int? = null,
     val espera:Int? = null,
-    val lider:Int? = null) : Serializable {
+    val lider:Int? = null,
+    val idUsuario:Int? = null) : Serializable {
 }

@@ -77,9 +77,11 @@
     <string name="error_server_500">Error to call server request.</string>
     <string name="error_login_404">Incorrect user or password, try again.</string>
     <string name="error_save_404">Something gone wrong, try again.</string>
+    <string name="error_add_guild">Something gone wrong, try again.</string>
     <string name="success_loading">Loading information...</string>
     <string name="success_save_char">Changes saved.</string>
     <string name="success_user_created">User created.</string>
+    <string name="success_guild_created">Guild created.</string>
 
     <!--Color response-->
     <string name="error_color">#BB0000</string>
