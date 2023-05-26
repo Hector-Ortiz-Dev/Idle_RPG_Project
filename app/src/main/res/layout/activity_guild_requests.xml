@@ -16,7 +16,7 @@
         android:textStyle="bold"
         android:textColor="@color/primary"
         android:textSize="30dp"
-        android:text="Guild Requests" />
+        android:text="@string/text_guild_request" />
 
     <LinearLayout
         android:id="@+id/layoutGuildTitle"
@@ -62,7 +62,7 @@
         android:layout_marginTop="40dp"
         tools:itemCount="5"
         android:layout_below="@id/layoutGuildTitle"
-        tools:listitem="@layout/card_view_design" />
+        tools:listitem="@layout/card_users_guild_request" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

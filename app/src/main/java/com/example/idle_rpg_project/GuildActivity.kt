@@ -1,5 +1,6 @@
 package com.example.idle_rpg_project
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -45,6 +46,7 @@ class GuildActivity : AppCompatActivity() {
         }
 
         btnBack.setOnClickListener { finish() }
+        btnPendientes.setOnClickListener { openGuildRequestActivity() }
     }
 
     private fun initializeViews() {
@@ -107,5 +109,12 @@ class GuildActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    fun openGuildRequestActivity() {
+        val intent = Intent(this, GuildRequestsActivity::class.java)
+        intent.putExtra("user", user)
+        intent.putExtra("gremio", gremio)
+        startActivity(intent)
     }
 }

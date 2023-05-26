@@ -27,6 +27,7 @@
     <string name="text_exp">Guild Exp:</string>
     <string name="text_members">Members:</string>
     <string name="text_guild_master">Guild Master:</string>
+    <string name="text_guild_request">Guild Request</string>
 
     <string-array name="colors">
         <item>blue</item>
