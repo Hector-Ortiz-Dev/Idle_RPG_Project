@@ -40,13 +40,6 @@ class InitActivity : AppCompatActivity() {
                 finish()
             }, 500)
         }
-
-        //val username = cursor.getString(cursor.getColumnIndex(DBHelper.USERNAME_COL))
-
-//        Handler().postDelayed({
-//            val login = Intent(this, LoginActivity::class.java)
-//            startActivity(login)
-//        }, 4000)
     }
 
     private fun getUserById(id: Int) {

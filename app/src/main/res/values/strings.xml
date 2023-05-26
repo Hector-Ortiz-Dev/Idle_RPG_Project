@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Idle_RPG_Project</string>
+    <string name="app_name">RPG Idle Project</string>
     <string name="logo">Idle_RPG_Project_Logo</string>
     <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
@@ -11,36 +11,55 @@
     <string name="username">Username</string>
     <string name="confirm_password">Confirm password</string>
     <string name="confirm_new_password">Confirm new password</string>
-    <string name="character_creation">Character Creation</string>
+    <string name="custom_character">Custom Character</string>
     <string name="select_head">Select Head</string>
+    <string name="select_body">Select Body</string>
+    <string name="select_left_arm">Select Left Arm</string>
+    <string name="select_right_arm">Select Right Arm</string>
+    <string name="select_left_leg">Select Left Leg</string>
+    <string name="select_right_leg">Select Right Leg</string>
+    <string name="select_type">Type: </string>
+    <string name="select_color">Color: </string>
+    <string name="you">You</string>
+    <string name="pending_members">Pending Members</string>
+    <string name="text_guild">Guild:</string>
+    <string name="text_lvl">Lvl:</string>
+    <string name="text_exp">Guild Exp:</string>
+    <string name="text_members">Members:</string>
+    <string name="text_guild_master">Guild Master:</string>
+    <string name="text_guild_request">Guild Request</string>
 
-    <string-array name="head_types">
-        <item>Head1</item>
-        <item>Head2</item>
-        <item>Head3</item>
-        <item>Head4</item>
-        <item>Head5</item>
+    <string-array name="colors">
+        <item>blue</item>
+        <item>green</item>
+        <item>orange</item>
+        <item>pink</item>
+        <item>purple</item>
+        <item>red</item>
+        <item>white</item>
+        <item>yelow</item>
     </string-array>
 
-    <string-array name="body_types">
-        <item>Body1</item>
-        <item>Body2</item>
-        <item>Body3</item>
-        <item>Body4</item>
-        <item>Body5</item>
+    <string-array name="types">
+        <item>Base</item>
+        <item>Bone</item>
+        <item>Cream</item>
+        <item>Girl</item>
+        <item>Octo</item>
+        <item>Robot</item>
+        <item>Tri</item>
+        <item>Yin</item>
     </string-array>
 
-    <string-array name="class_types">
-        <item>Knight</item>
-        <item>Assassin</item>
-        <item>Mage</item>
-        <item>Ranger</item>
-        <item>Explorer</item>
+    <string name="guildSize">"GuildSize"</string>
+    <string-array name="guildSize">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
     </string-array>
 
     <string name="head_prompt">Head prompt</string>
 
-    <string name="select_body">Select Body</string>
     <string name="select_class">Select Class</string>
     <string name="select_gender">Select Gender</string>
 
@@ -53,6 +72,34 @@
     <string name="character">Character</string>
     <string name="options">Options</string>
     <string name="logout">Logout</string>
+    <string name="exit">Exit</string>
+    <string name="discard_changes">Discard Changes</string>
 
+    <!--Response to questions-->
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="back">Back</string>
+    <string name="confirm">Confirm</string>
+
+    <!--Server response-->
+    <string name="error_server_500">Error to call server request.</string>
+    <string name="error_login_404">Incorrect user or password, try again.</string>
+    <string name="error_404">Something gone wrong, try again.</string>
+    <string name="error_save_404">Something gone wrong, try again.</string>
+    <string name="error_add_guild">Something gone wrong, try again.</string>
+    <string name="success_loading">Loading information...</string>
+    <string name="success_save_char">Changes saved.</string>
+    <string name="success_user_created">User created.</string>
+    <string name="success_guild_created">Guild created.</string>
+    <string name="success_request_sent">Request sent.</string>
+
+    <!--Color response-->
+    <string name="error_color">#BB0000</string>
+    <string name="success_color">#3F7B35</string>
+
+    <!--Questions-->
+    <string name="sure_logout">Are you sure you want to log out?</string>
+    <string name="sure_exit">Are you sure you want to exit app?</string>
+    <string name="sure_discard_changes">Do you want discard changes?</string>
 
 </resources>

@@ -1,6 +1,7 @@
 package com.example.idle_rpg_project.interfaces
 
 import com.example.idle_rpg_project.modelRequests.RequestGremio
+import com.example.idle_rpg_project.modelRequests.RequestUsuario
 import com.example.idle_rpg_project.models.Gremio
 import retrofit2.Call
 import retrofit2.http.Body
@@ -19,7 +20,7 @@ interface ApiGremio {
     abstract fun getNextLevel(@Path("level") level: Int): Call<RequestGremio>
 
     @GET("gremio/pendientes/{idGremio}")
-    abstract fun getMiembrosPendientes(@Path("idGremio") idGremio: Int): Call<RequestGremio>
+    abstract fun getMiembrosPendientes(@Path("idGremio") idGremio: Int): Call<RequestUsuario>
 
     @POST("gremio")
     abstract fun post(@Body data: Gremio): Call<RequestGremio>

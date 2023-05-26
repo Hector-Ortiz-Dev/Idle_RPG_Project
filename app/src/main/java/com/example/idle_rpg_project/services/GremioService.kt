@@ -3,6 +3,7 @@ package com.example.idle_rpg_project.services
 import com.example.idle_rpg_project.builders.ServiceBuilder
 import com.example.idle_rpg_project.interfaces.ApiGremio
 import com.example.idle_rpg_project.modelRequests.RequestGremio
+import com.example.idle_rpg_project.modelRequests.RequestUsuario
 import com.example.idle_rpg_project.models.Gremio
 import retrofit2.Call
 import retrofit2.Callback
@@ -54,14 +55,14 @@ class GremioService {
         )
     }
 
-    fun getMiembrosPendientes(level: Int, onResult: (RequestGremio?) -> Unit){
+    fun getMiembrosPendientes(idGremio: Int, onResult: (RequestUsuario?) -> Unit){
         val retrofit = ServiceBuilder.buildService(ApiGremio::class.java)
-        retrofit.getMiembrosPendientes(level).enqueue(
-            object : Callback<RequestGremio> {
-                override fun onFailure(call: Call<RequestGremio>, t: Throwable) {
+        retrofit.getMiembrosPendientes(idGremio).enqueue(
+            object : Callback<RequestUsuario> {
+                override fun onFailure(call: Call<RequestUsuario>, t: Throwable) {
                     onResult(null)
                 }
-                override fun onResponse(call: Call<RequestGremio>, response: Response<RequestGremio>) {
+                override fun onResponse(call: Call<RequestUsuario>, response: Response<RequestUsuario>) {
                     val result = response.body()
                     onResult(result)
                 }

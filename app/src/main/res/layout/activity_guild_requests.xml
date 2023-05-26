@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".GuildRequestsActivity">
+
+    <TextView
+        android:id="@+id/guildRequestsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textColor="@color/primary"
+        android:textSize="30dp"
+        android:text="@string/text_guild_request" />
+
+    <LinearLayout
+        android:id="@+id/layoutGuildTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/guildRequestsTitle"
+        android:background="@color/secondary"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="100dp"
+        android:paddingRight="100dp"
+        android:layout_marginTop="12dp"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/guildNameTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="24dp"
+            android:text="[Guild Name]" />
+
+        <TextView
+            android:id="@+id/guildLevelTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/txtUsername"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:textSize="24dp"
+            android:text="[Lvl. 2]" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_gremio"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="40dp"
+        tools:itemCount="5"
+        android:layout_below="@id/layoutGuildTitle"
+        tools:listitem="@layout/card_users_guild_request" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/cancel1"
+            android:text="Back"
+            android:textColor="@color/white"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:ignore="TextSizeCheck" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>
