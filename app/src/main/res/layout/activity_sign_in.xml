@@ -111,7 +111,7 @@
 
     <!-- Campo para introducir la contraseña -->
     <EditText
-        android:id="@+id/password_input"
+        android:id="@+id/nombre_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/email_input"
@@ -131,7 +131,7 @@
         android:id="@+id/confirm_password_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/password_input"
+        android:layout_below="@id/nombre_input"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginRight="32dp"

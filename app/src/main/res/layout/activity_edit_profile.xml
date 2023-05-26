@@ -30,13 +30,22 @@
         android:layout_marginTop="32dp" />
 
     <!-- Campo para introducir el nombre de usuario -->
+    <TextView
+        android:id="@+id/txtUsername"
+        android:layout_below="@id/user_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="32dp"
+        android:text="@string/username" />
+
     <EditText
         android:id="@+id/username_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/user_image"
+        android:layout_below="@id/txtUsername"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="16dp"
         android:layout_marginRight="32dp"
         android:hint="@string/username"
         android:inputType="text"
@@ -46,49 +55,52 @@
 
 
     <!-- Campo para introducir la contraseña -->
-    <EditText
-        android:id="@+id/password_input"
+    <TextView
+        android:id="@+id/txtName"
+        android:layout_below="@id/username_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/username_input"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginRight="32dp"
-        android:hint="@string/password_hint"
-        android:inputType="textPassword"
+        android:text="@string/name" />
+    <EditText
+        android:id="@+id/nombre_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtName"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:hint="@string/name"
+        android:inputType="text"
         android:maxLines="1"
         android:textColor="@color/primary"
         tools:ignore="TouchTargetSizeCheck" />
 
     <!-- Campo para introducir la nueva contraseña -->
-    <EditText
-        android:id="@+id/newPassword_input"
+    <TextView
+        android:id="@+id/txtApellidos"
+        android:layout_below="@id/nombre_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/password_input"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginRight="32dp"
-        android:hint="@string/new_password_hint"
-        android:inputType="textPassword"
+        android:text="@string/last_name" />
+    <EditText
+        android:id="@+id/apellidos_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtApellidos"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:hint="@string/last_name"
+        android:inputType="text"
         android:maxLines="1"
         android:textColor="@color/primary"
         tools:ignore="TouchTargetSizeCheck" />
 
     <!-- Campo para repetir la nueva contraseña -->
-    <EditText
-        android:id="@+id/repeat_new_password_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/newPassword_input"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="32dp"
-        android:hint="@string/confirm_new_password"
-        android:inputType="textPassword"
-        android:maxLines="1"
-        android:textColor="@color/primary"
-        tools:ignore="TouchTargetSizeCheck" />
 
     <!-- Botón para registrarse -->
     <Button
@@ -98,7 +110,7 @@
         android:text="Confirm"
         android:background="@color/accept"
         android:textColor="@color/white"
-        android:layout_below="@id/repeat_new_password_input"
+        android:layout_below="@id/apellidos_input"
         android:layout_marginTop="32dp"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"/>

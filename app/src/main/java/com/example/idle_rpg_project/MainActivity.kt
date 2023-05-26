@@ -192,6 +192,10 @@ class MainActivity : AppCompatActivity() {
                 }
                 else {
                     user = it.records[0]
+
+                    // Load username in View
+                    val lblUsername = findViewById<TextView>(R.id.username_textview)
+                    lblUsername.text = user.username
                 }
             }
         }
