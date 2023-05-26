@@ -22,6 +22,11 @@
     <string name="select_color">Color: </string>
     <string name="you">You</string>
     <string name="pending_members">Pending Members</string>
+    <string name="text_guild">Guild:</string>
+    <string name="text_lvl">Lvl:</string>
+    <string name="text_exp">Guild Exp:</string>
+    <string name="text_members">Members:</string>
+    <string name="text_guild_master">Guild Master:</string>
 
     <string-array name="colors">
         <item>blue</item>
@@ -78,6 +83,7 @@
     <!--Server response-->
     <string name="error_server_500">Error to call server request.</string>
     <string name="error_login_404">Incorrect user or password, try again.</string>
+    <string name="error_404">Something gone wrong, try again.</string>
     <string name="error_save_404">Something gone wrong, try again.</string>
     <string name="error_add_guild">Something gone wrong, try again.</string>
     <string name="success_loading">Loading information...</string>

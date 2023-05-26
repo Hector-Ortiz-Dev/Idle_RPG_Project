@@ -22,13 +22,14 @@
 
         <TextView
             android:id="@+id/guildNameTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:textStyle="bold"
+            android:text="[Guild Name]"
+            android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="24dp"
-            android:text="[Guild Name]" />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/guildLevelTitle"
