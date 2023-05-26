@@ -20,6 +20,7 @@ class CreateGuildActivity : AppCompatActivity() {
     private lateinit var txtNameGuild: EditText
     private lateinit var spinnerSize: Spinner
     private lateinit var btnCreateGuild: Button
+    private lateinit var btnBack: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_guild)
@@ -29,12 +30,14 @@ class CreateGuildActivity : AppCompatActivity() {
         initializeViews()
 
         btnCreateGuild.setOnClickListener { addGremio() }
+        btnBack.setOnClickListener { finish() }
     }
 
     private fun initializeViews() {
         txtNameGuild = findViewById(R.id.createGuildName)
         spinnerSize = findViewById(R.id.createGuildSize)
         btnCreateGuild = findViewById(R.id.btnCreateGuild)
+        btnBack = findViewById(R.id.btnBack)
     }
 
     private fun addGremio() {

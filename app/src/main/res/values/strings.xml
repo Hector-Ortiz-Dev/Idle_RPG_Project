@@ -82,6 +82,7 @@
     <string name="success_save_char">Changes saved.</string>
     <string name="success_user_created">User created.</string>
     <string name="success_guild_created">Guild created.</string>
+    <string name="success_request_sent">Request sent.</string>
 
     <!--Color response-->
     <string name="error_color">#BB0000</string>
