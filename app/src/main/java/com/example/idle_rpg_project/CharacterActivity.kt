@@ -16,6 +16,8 @@ class CharacterActivity : AppCompatActivity() {
     var player: Jugador = Jugador()
 
     private lateinit var txtUser: TextView
+    private lateinit var txtLevel: TextView
+
     private lateinit var txtExp: TextView
     private lateinit var txtCoins: TextView
     private lateinit var txtHp: TextView
@@ -42,6 +44,9 @@ class CharacterActivity : AppCompatActivity() {
 
         val btnCustomCharacter = findViewById<Button>(R.id.btnCustomCharacter)
         btnCustomCharacter.setOnClickListener { openCustomCharacterActivity() }
+
+        val btnBack = findViewById<Button>(R.id.btnBack)
+        btnBack.setOnClickListener { finish() }
     }
     override fun onResume() {
         super.onResume()
@@ -52,6 +57,8 @@ class CharacterActivity : AppCompatActivity() {
 
     private fun initializeViews() {
         txtUser = findViewById(R.id.txtUsername)
+        txtLevel = findViewById(R.id.txtLevel)
+
         txtExp = findViewById(R.id.txtExp)
         txtCoins = findViewById(R.id.txtCoins)
         txtHp = findViewById(R.id.txtHp)
@@ -70,9 +77,11 @@ class CharacterActivity : AppCompatActivity() {
 
     private fun loadData() {
         txtUser.text = user.username
+        txtLevel.text = "${getString(R.string.text_lvl)} ${player.nivel}"
+
         txtExp.text = player.exp.toString()
         txtCoins.text = player.monedas.toString()
-        txtHp.text = player.hp.toString() + "/" + player.hp_max.toString()
+        txtHp.text = "${player.hp.toString()} / ${player.hp_max.toString()}"
         txtAtk.text = player.atk.toString()
         txtDef.text = player.def.toString()
         txtSpd.text = player.spd.toString()
