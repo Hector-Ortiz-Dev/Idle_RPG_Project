@@ -17,6 +17,7 @@ import showCustomToast
 
 @Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
+    private var isRunning: Boolean = false
 
     var user = Usuario()
     var player = Jugador()
@@ -39,11 +40,61 @@ class MainActivity : AppCompatActivity() {
         val btnOptions = findViewById<ImageButton>(R.id.button_options)
         val btnLogout = findViewById<ImageButton>(R.id.button_exit)
 
-        btnGuild.setOnClickListener { openGuildActivity() }
-        btnShop.setOnClickListener { openGuildActivity() }
-        btnSword.setOnClickListener { openCharacterActivity() }
-        btnOptions.setOnClickListener { openEditProfileActivity() }
-        btnLogout.setOnClickListener { showAlertDialog() }
+        btnGuild.setOnClickListener {
+            openGuildActivity()
+            isRunning = false
+        }
+        btnShop.setOnClickListener {
+            openGuildActivity()
+            isRunning = false
+        }
+        btnSword.setOnClickListener {
+            openCharacterActivity()
+            isRunning = false
+        }
+        btnOptions.setOnClickListener {
+            openEditProfileActivity()
+            isRunning = false
+        }
+        btnLogout.setOnClickListener {
+            showAlertDialog()
+            isRunning = false
+        }
+    }
+
+    private fun startCyclicExecution() {
+        isRunning = true
+
+        val thread = Thread {
+            while (isRunning) {
+                // Tu función cíclica aquí
+                ejecutarFuncion()
+
+                // Agregar una pausa si es necesario
+                Thread.sleep(1000) // Ejemplo: pausa de 1 segundo
+            }
+        }
+
+        thread.start()
+    }
+
+    private fun ejecutarFuncion() {
+        // Lógica de tu función cíclica aquí
+        Log.e("test", "gracias mundillo :)")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        // Detener el ciclo al destruir la actividad
+        stopCyclicExecution()
+    }
+
+    private fun stopCyclicExecution() {
+        isRunning = false
+
+        // Iniciar el ciclo
+        startCyclicExecution()
     }
 
     override fun onResume() {
@@ -57,6 +108,10 @@ class MainActivity : AppCompatActivity() {
         val id = user.id
         getUserById(id!!)
         getJugador(id!!)
+
+        isRunning = true
+        // Iniciar el ciclo
+        startCyclicExecution()
     }
 
     override fun onBackPressed() {
