@@ -49,6 +49,12 @@ class GuildActivity : AppCompatActivity() {
         btnPendientes.setOnClickListener { openGuildRequestActivity() }
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        getUsuariosGremio()
+    }
+
     private fun initializeViews() {
         // getting the recyclerview by its id
         recyclerview = findViewById(R.id.recyclerview_gremio)
@@ -112,6 +118,11 @@ class GuildActivity : AppCompatActivity() {
     }
 
     fun openGuildRequestActivity() {
+        if(usuariosGremio.size >= gremio.cantidad!!){
+            Toast(this).showCustomToast (getString(R.string.error_color),"${getString(R.string.success_full_guild)}", this)
+            return
+        }
+
         val intent = Intent(this, GuildRequestsActivity::class.java)
         intent.putExtra("user", user)
         intent.putExtra("gremio", gremio)

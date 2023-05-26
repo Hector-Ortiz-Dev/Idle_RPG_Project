@@ -14,8 +14,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.idle_rpg_project.R
+import com.example.idle_rpg_project.models.Gremio
 import com.example.idle_rpg_project.models.Usuario
 import com.example.idle_rpg_project.services.GremioService
+import com.example.idle_rpg_project.services.UsuarioService
 import com.example.idle_rpg_project.utils.DBHelper
 import showCustomToast
 
@@ -45,7 +47,7 @@ class UsuariosPendientesGremioAdapter(val context: Activity, val element: Int, p
         holder.textViewLevel.isGone = true
 
         // event click in the card element
-//        holder.btnAcceptMember.setOnClickListener { acceptMember(itemCard) }
+        holder.btnAcceptMember.setOnClickListener { acceptMember(itemCard) }
     }
 
     // return the number of the items in the list
@@ -61,31 +63,27 @@ class UsuariosPendientesGremioAdapter(val context: Activity, val element: Int, p
         val btnAcceptMember: ImageButton = itemView.findViewById(R.id.btnAcceptMember)
     }
 
-//    fun acceptMember(item: Usuario) {
-////        Toast(context).showCustomToast ("#111111","${item.username}", context)
-//        val gremioService = GremioService()
-//
-//        gremioService.getMiembrosPendientes(item.idGremio!!) {
-//            if (it == null) {
-//                Toast(this).showCustomToast (getString(R.string.error_color),"${getString(R.string.error_server_500)}", this)
-//            }
-//            else {
-//                if(it.estatus == 404) {
-//                    Toast(this).showCustomToast (getString(R.string.error_color),"${getString(R.string.error_404)}", this)
-//                }
-//                else {
-//                    usuariosPendientes = it.records
-//
-//                    // this creates a vertical layout Manager
-//                    recyclerview.layoutManager = LinearLayoutManager(this)
-//
-//                    // This will pass the ArrayList to our Adapter
-//                    val adapter = UsuariosPendientesGremioAdapter(this, R.layout.card_users_guild_request, usuariosPendientes)
-//
-//                    // Setting the Adapter with the recyclerview
-//                    recyclerview.adapter = adapter
-//                }
-//            }
-//        }
-//    }
+    @SuppressLint("Range")
+    fun acceptMember(item: Usuario) {
+        val data = Usuario(method = "acceptMember", idUsuario = item.id, idGremio = item.idGremio)
+
+        val usuarioService = UsuarioService()
+
+        usuarioService.post(data) {
+            if (it == null) {
+                Toast(context).showCustomToast (context.getString(R.string.error_color), "${context.getString(R.string.error_server_500)}",context)
+            }
+            else {
+                if(it.estatus == 500){
+                    Toast(context).showCustomToast (context.getString(R.string.error_color),"${context.getString(R.string.error_save_404)}", context)
+                }
+                else {
+                    Toast(context).showCustomToast (context.getString(R.string.success_color),"${context.getString(R.string.success_accepted_member)}",context)
+
+                    val data: Usuario = it.records[0]
+                    context.finish()
+                }
+            }
+        }
+    }
 }

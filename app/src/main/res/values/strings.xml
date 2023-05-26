@@ -92,6 +92,8 @@
     <string name="success_user_created">User created.</string>
     <string name="success_guild_created">Guild created.</string>
     <string name="success_request_sent">Request sent.</string>
+    <string name="success_accepted_member">Accepted member.</string>
+    <string name="success_full_guild">You have a full guild.</string>
 
     <!--Color response-->
     <string name="error_color">#BB0000</string>
