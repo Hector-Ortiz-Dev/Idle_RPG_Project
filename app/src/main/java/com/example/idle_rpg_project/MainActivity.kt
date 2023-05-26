@@ -34,12 +34,16 @@ class MainActivity : AppCompatActivity() {
         getJugador(id!!)
 
         val btnGuild = findViewById<ImageButton>(R.id.button_guild)
-        val btnLogout = findViewById<ImageButton>(R.id.button_exit)
+        val btnShop = findViewById<ImageButton>(R.id.button_shop)
         val btnSword = findViewById<ImageButton>(R.id.button_sword)
+        val btnOptions = findViewById<ImageButton>(R.id.button_options)
+        val btnLogout = findViewById<ImageButton>(R.id.button_exit)
 
         btnGuild.setOnClickListener { openGuildActivity() }
-        btnLogout.setOnClickListener { showAlertDialog() }
+        btnShop.setOnClickListener { openGuildActivity() }
         btnSword.setOnClickListener { openCharacterActivity() }
+        btnOptions.setOnClickListener { openEditProfileActivity() }
+        btnLogout.setOnClickListener { showAlertDialog() }
     }
 
     override fun onResume() {
@@ -213,4 +217,16 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    private fun openEditProfileActivity() {
+        val intent = Intent(this, EditProfileActivity::class.java)
+        intent.putExtra("user", user)
+        startActivity(intent)
+    }
+
+//    private fun openShopActivity() {
+//        val intent = Intent(this, ::class.java)
+//        intent.putExtra("user", user)
+//        startActivity(intent)
+//    }
 }
