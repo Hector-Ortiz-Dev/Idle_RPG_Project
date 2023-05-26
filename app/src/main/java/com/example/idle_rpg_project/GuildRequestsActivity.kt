@@ -2,6 +2,7 @@ package com.example.idle_rpg_project
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,6 +22,7 @@ class GuildRequestsActivity : AppCompatActivity() {
     private lateinit var recyclerview: RecyclerView
     private lateinit var guildNameTitle: TextView
     private lateinit var guildLevelTitle: TextView
+    private lateinit var btnBack: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +36,8 @@ class GuildRequestsActivity : AppCompatActivity() {
 
         guildNameTitle.text = "${getString(R.string.text_guild)} ${gremio.nombre}"
         guildLevelTitle.text = "${getString(R.string.text_lvl)} ${gremio.nivel}"
+
+        btnBack.setOnClickListener { finish() }
     }
 
     private fun initializeViews() {
@@ -42,6 +46,7 @@ class GuildRequestsActivity : AppCompatActivity() {
 
         guildNameTitle = findViewById(R.id.guildNameTitle)
         guildLevelTitle = findViewById(R.id.guildLevelTitle)
+        btnBack = findViewById(R.id.btnBack)
     }
 
     fun getUsuariosPendientes(idGremio: Int) {
