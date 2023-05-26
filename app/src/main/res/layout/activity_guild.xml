@@ -41,6 +41,12 @@
             android:textSize="24dp"
             android:text="[Lvl. 2]" />
 
+        <Button
+            android:id="@+id/btnPendientes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pending_members" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -109,7 +115,7 @@
         android:layout_height="match_parent"
         tools:itemCount="5"
         android:layout_below="@id/txtGuildMembers"
-        tools:listitem="@layout/card_view_design" />
+        tools:listitem="@layout/card_users_guild" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

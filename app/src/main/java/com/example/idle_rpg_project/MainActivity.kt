@@ -205,11 +205,6 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, GuildActivity::class.java)
                 intent.putExtra("user", user)
                 startActivity(intent)
-
-//                Toast(this).showCustomToast (
-//                    getString(R.string.success_color),
-//                    "Se abre lider gremio",
-//                    this)
             }
             else if(user.lider == 0){
                 val intent = Intent(this, GuildActivity::class.java)
@@ -217,10 +212,5 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
-
-//        val intent = Intent(this, CharacterActivity::class.java)
-//        intent.putExtra("user", user)
-//        intent.putExtra("player", player)
-//        startActivity(intent)
     }
 }

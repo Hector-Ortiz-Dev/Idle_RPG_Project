@@ -20,6 +20,8 @@
     <string name="select_right_leg">Select Right Leg</string>
     <string name="select_type">Type: </string>
     <string name="select_color">Color: </string>
+    <string name="you">You</string>
+    <string name="pending_members">Pending Members</string>
 
     <string-array name="colors">
         <item>blue</item>
