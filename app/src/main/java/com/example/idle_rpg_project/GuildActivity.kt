@@ -3,6 +3,7 @@ package com.example.idle_rpg_project
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -45,8 +46,16 @@ class GuildActivity : AppCompatActivity() {
             btnPendientes.isGone = true
         }
 
-        btnBack.setOnClickListener { finish() }
-        btnPendientes.setOnClickListener { openGuildRequestActivity() }
+        btnBack.setOnClickListener {
+            val anim = AnimationUtils.loadAnimation(this, R.anim.bounce)
+            btnBack.startAnimation(anim)
+            finish()
+        }
+        btnPendientes.setOnClickListener {
+            val anim = AnimationUtils.loadAnimation(this, R.anim.bounce)
+            btnPendientes.startAnimation(anim)
+            openGuildRequestActivity()
+        }
     }
 
     override fun onResume() {

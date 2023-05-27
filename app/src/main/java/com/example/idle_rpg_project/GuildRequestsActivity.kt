@@ -2,6 +2,7 @@ package com.example.idle_rpg_project
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -37,7 +38,11 @@ class GuildRequestsActivity : AppCompatActivity() {
         guildNameTitle.text = "${getString(R.string.text_guild)} ${gremio.nombre}"
         guildLevelTitle.text = "${getString(R.string.text_lvl)} ${gremio.nivel}"
 
-        btnBack.setOnClickListener { finish() }
+        btnBack.setOnClickListener {
+            val anim = AnimationUtils.loadAnimation(this, R.anim.bounce)
+            btnBack.startAnimation(anim)
+            finish()
+        }
     }
 
     private fun initializeViews() {

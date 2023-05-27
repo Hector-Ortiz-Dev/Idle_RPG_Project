@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.Html.ImageGetter
 import android.text.TextWatcher
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
@@ -28,6 +29,7 @@ class SearchGuildActivity : AppCompatActivity() {
 
 
     private lateinit var btnCreate: Button
+    private lateinit var btnBack: Button
     private lateinit var txtSearch: EditText
     private lateinit var recyclerview: RecyclerView
 
@@ -43,7 +45,16 @@ class SearchGuildActivity : AppCompatActivity() {
 
         getGremios()
 
-        btnCreate.setOnClickListener { openCreateGuildActivity() }
+        btnCreate.setOnClickListener {
+            val anim = AnimationUtils.loadAnimation(this, R.anim.bounce)
+            btnCreate.startAnimation(anim)
+            openCreateGuildActivity()
+        }
+        btnBack.setOnClickListener {
+            val anim = AnimationUtils.loadAnimation(this, R.anim.bounce)
+            btnBack.startAnimation(anim)
+            finish()
+        }
 
         txtSearch.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {}
@@ -69,6 +80,7 @@ class SearchGuildActivity : AppCompatActivity() {
 
     private fun initializeViews() {
         btnCreate = findViewById(R.id.btnCreateGuild)
+        btnBack = findViewById(R.id.btnBack)
         txtSearch = findViewById(R.id.searchGuildName)
 
         // getting the recyclerview by its id

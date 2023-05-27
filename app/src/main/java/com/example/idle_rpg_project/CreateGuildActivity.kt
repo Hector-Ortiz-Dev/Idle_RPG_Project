@@ -3,6 +3,7 @@ package com.example.idle_rpg_project
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
@@ -29,8 +30,16 @@ class CreateGuildActivity : AppCompatActivity() {
 
         initializeViews()
 
-        btnCreateGuild.setOnClickListener { addGremio() }
-        btnBack.setOnClickListener { finish() }
+        btnCreateGuild.setOnClickListener {
+            val anim = AnimationUtils.loadAnimation(this, R.anim.bounce)
+            btnCreateGuild.startAnimation(anim)
+            addGremio()
+        }
+        btnBack.setOnClickListener {
+            val anim = AnimationUtils.loadAnimation(this, R.anim.bounce)
+            btnBack.startAnimation(anim)
+            finish()
+        }
     }
 
     private fun initializeViews() {

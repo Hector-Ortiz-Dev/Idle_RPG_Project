@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -53,8 +54,16 @@ class CharCreationActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
         val btnConfirm = findViewById<Button>(R.id.confirm_button)
         val btnCancel = findViewById<Button>(R.id.cancel_button)
 
-        btnConfirm.setOnClickListener { saveChangesCustomCharacter() }
-        btnCancel.setOnClickListener { onBackPressed() }
+        btnConfirm.setOnClickListener {
+            val anim = AnimationUtils.loadAnimation(this, R.anim.bounce)
+            btnConfirm.startAnimation(anim)
+            saveChangesCustomCharacter()
+        }
+        btnCancel.setOnClickListener {
+            val anim = AnimationUtils.loadAnimation(this, R.anim.bounce)
+            btnCancel.startAnimation(anim)
+            onBackPressed()
+        }
     }
 
     override fun onBackPressed() {

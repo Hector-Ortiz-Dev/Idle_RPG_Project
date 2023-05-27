@@ -5,6 +5,7 @@ import android.app.Activity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
@@ -47,7 +48,11 @@ class UsuariosPendientesGremioAdapter(val context: Activity, val element: Int, p
         holder.textViewLevel.isGone = true
 
         // event click in the card element
-        holder.btnAcceptMember.setOnClickListener { acceptMember(itemCard) }
+        holder.btnAcceptMember.setOnClickListener {
+            val anim = AnimationUtils.loadAnimation(context, R.anim.bounce)
+            holder.btnAcceptMember.startAnimation(anim)
+            acceptMember(itemCard)
+        }
     }
 
     // return the number of the items in the list

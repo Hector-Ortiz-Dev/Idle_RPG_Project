@@ -3,6 +3,7 @@ package com.example.idle_rpg_project
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -34,7 +35,11 @@ class EditProfileActivity : AppCompatActivity() {
         nombreInput.setText(user.nombre)
         apellidosInput.setText(user.apellidos)
 
-        btnConfirm.setOnClickListener { editProfile() }
+        btnConfirm.setOnClickListener {
+            val anim = AnimationUtils.loadAnimation(this, R.anim.bounce)
+            btnConfirm.startAnimation(anim)
+            editProfile()
+        }
     }
 
     private fun initializeViews() {

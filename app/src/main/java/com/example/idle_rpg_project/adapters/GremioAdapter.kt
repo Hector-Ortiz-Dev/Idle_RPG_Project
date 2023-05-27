@@ -5,10 +5,12 @@ import android.app.Activity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.idle_rpg_project.R
 import com.example.idle_rpg_project.models.Gremio
@@ -40,7 +42,11 @@ class GremioAdapter(val context: Activity, val element: Int, private val mList: 
         holder.textView.text = itemCard.nombre
 
         // event click in the card element
-        holder.btnAddGremio.setOnClickListener { addMember(itemCard) }
+        holder.btnAddGremio.setOnClickListener {
+            addMember(itemCard)
+            val anim = AnimationUtils.loadAnimation(context, R.anim.bounce)
+            holder.btnAddGremio.startAnimation(anim)
+        }
     }
 
     // return the number of the items in the list

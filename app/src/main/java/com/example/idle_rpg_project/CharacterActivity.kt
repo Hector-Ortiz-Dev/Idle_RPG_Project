@@ -49,10 +49,18 @@ class CharacterActivity : AppCompatActivity() {
         getJugador(user.id!!)
 
         val btnCustomCharacter = findViewById<Button>(R.id.btnCustomCharacter)
-        btnCustomCharacter.setOnClickListener { openCustomCharacterActivity() }
-
         val btnBack = findViewById<Button>(R.id.btnBack)
-        btnBack.setOnClickListener { finish() }
+
+        btnCustomCharacter.setOnClickListener {
+            val anim = AnimationUtils.loadAnimation(this, R.anim.bounce)
+            btnCustomCharacter.startAnimation(anim)
+            openCustomCharacterActivity()
+        }
+        btnBack.setOnClickListener {
+            val anim = AnimationUtils.loadAnimation(this, R.anim.bounce)
+            btnBack.startAnimation(anim)
+            finish()
+        }
     }
     override fun onResume() {
         super.onResume()
