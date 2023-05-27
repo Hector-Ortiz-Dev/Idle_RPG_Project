@@ -3,10 +3,12 @@ package com.example.idle_rpg_project
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.util.Log
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isGone
 import com.bumptech.glide.Glide
 import com.example.idle_rpg_project.models.Jugador
 import com.example.idle_rpg_project.models.Usuario
@@ -71,7 +73,7 @@ class MainActivity : AppCompatActivity() {
                 ejecutarFuncion()
 
                 // Agregar una pausa si es necesario
-                Thread.sleep(1000) // Ejemplo: pausa de 1 segundo
+                Thread.sleep(5000) // Ejemplo: pausa de 1 segundo
             }
         }
 
@@ -80,7 +82,35 @@ class MainActivity : AppCompatActivity() {
 
     private fun ejecutarFuncion() {
         // Lógica de tu función cíclica aquí
-        Log.e("test", "gracias mundillo :)")
+//        Log.e("test", "gracias mundillo :)")
+
+        val animation = AnimationUtils.loadAnimation(this, R.anim.fade_icon)
+        val icon = findViewById<ImageView>(R.id.icon)
+        icon.startAnimation(animation)
+        animation.setAnimationListener(object : Animation.AnimationListener {
+            override fun onAnimationStart(animation: Animation) {
+                // Método llamado cuando la animación comienza
+                icon.isGone = false
+            }
+
+            override fun onAnimationEnd(animation: Animation) {
+                // Método llamado cuando la animación termina
+                // Aquí puedes ejecutar el código que deseas después de la animación
+                icon.isGone = true
+            }
+
+            override fun onAnimationRepeat(animation: Animation) {
+                // Método llamado cuando la animación se repite
+            }
+        })
+
+        val animation2 = AnimationUtils.loadAnimation(this, R.anim.bounce)
+        val character = findViewById<ConstraintLayout>(R.id.character)
+        character.startAnimation(animation2)
+
+        val animation3 = AnimationUtils.loadAnimation(this, R.anim.bounce_move)
+        val enemy = findViewById<ImageView>(R.id.enemy)
+        enemy.startAnimation(animation3)
     }
 
     override fun onDestroy() {
