@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
             isRunning = false
         }
         btnShop.setOnClickListener {
-            openGuildActivity()
+            openShopActivity()
             isRunning = false
         }
         btnSword.setOnClickListener {
@@ -283,9 +283,9 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-//    private fun openShopActivity() {
-//        val intent = Intent(this, ::class.java)
-//        intent.putExtra("user", user)
-//        startActivity(intent)
-//    }
+    private fun openShopActivity() {
+        val intent = Intent(this, ShopActivity::class.java)
+        intent.putExtra("user", user)
+        startActivity(intent)
+    }
 }
