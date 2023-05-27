@@ -3,7 +3,9 @@ package com.example.idle_rpg_project
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.animation.AnimationUtils
 import android.widget.*
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.bumptech.glide.Glide
 import com.example.idle_rpg_project.models.Jugador
 import com.example.idle_rpg_project.models.Usuario
@@ -31,6 +33,10 @@ class CharacterActivity : AppCompatActivity() {
     private lateinit var imgBrazoIzq: ImageView
     private lateinit var imgPieDer: ImageView
     private lateinit var imgPieIzq: ImageView
+    private lateinit var character: ConstraintLayout
+
+    private var isRunning: Boolean = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_character)
@@ -52,8 +58,62 @@ class CharacterActivity : AppCompatActivity() {
         super.onResume()
 
         getJugador(user.id!!)
+
+        startCyclicExecution()
     }
 
+    private fun startCyclicExecution() {
+        isRunning = true
+
+        val thread = Thread {
+            while (isRunning) {
+                // Tu función cíclica aquí
+                mueveTorso()
+
+                // Agregar una pausa si es necesario
+                Thread.sleep(2000) // Ejemplo: pausa de 1 segundo
+            }
+        }
+        val thread2 = Thread {
+            while (isRunning) {
+                // Tu función cíclica aquí
+                mueveCabeza()
+
+                // Agregar una pausa si es necesario
+                Thread.sleep(1300) // Ejemplo: pausa de 1 segundo
+            }
+        }
+
+        thread.start()
+        thread2.start()
+    }
+
+    private fun mueveTorso() {
+        // Lógica de tu función cíclica aquí
+        val animation = AnimationUtils.loadAnimation(this, R.anim.zoom)
+        imgBrazoDer.startAnimation(animation)
+        imgBrazoIzq.startAnimation(animation)
+        imgPieDer.startAnimation(animation)
+        imgPieIzq.startAnimation(animation)
+    }
+
+    private fun mueveCabeza() {
+        // Lógica de tu función cíclica aquí
+        val animation = AnimationUtils.loadAnimation(this, R.anim.zoom)
+        imgTorso.startAnimation(animation)
+        imgHead.startAnimation(animation)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        // Detener el ciclo al destruir la actividad
+        stopCyclicExecution()
+    }
+
+    private fun stopCyclicExecution() {
+        isRunning = false
+    }
 
     private fun initializeViews() {
         txtUser = findViewById(R.id.txtUsername)
@@ -73,6 +133,7 @@ class CharacterActivity : AppCompatActivity() {
         imgBrazoIzq = findViewById(R.id.brazoIzq)
         imgPieDer = findViewById(R.id.pieDer)
         imgPieIzq = findViewById(R.id.pieIzq)
+        character = findViewById(R.id.character)
     }
 
     private fun loadData() {
