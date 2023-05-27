@@ -11,6 +11,7 @@ import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isGone
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.idle_rpg_project.models.Enemigo
 import com.example.idle_rpg_project.models.Jugador
@@ -27,6 +28,7 @@ class MainActivity : AppCompatActivity() {
 
     var user = Usuario()
     var player = Jugador()
+    private var systemBattle: SystemBattle? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -78,7 +80,7 @@ class MainActivity : AppCompatActivity() {
                 ejecutarFuncion()
 
                 // Agregar una pausa si es necesario
-                Thread.sleep(5000) // Ejemplo: pausa de 1 segundo
+                Thread.sleep(1000) // Ejemplo: pausa de 1 segundo
             }
         }
 
@@ -88,12 +90,9 @@ class MainActivity : AppCompatActivity() {
     private fun ejecutarFuncion() {
 
         //Comienza la batalla
-        val systemBattle = SystemBattle()
-
-        val enemyIA = Enemigo().generateEnemy(player.nivel!!)
-
-        val result = systemBattle.battle(player, enemyIA)
-
+        if (systemBattle == null)
+            systemBattle = SystemBattle(player)
+        val result = systemBattle!!.battle(player)
 
         Log.e("Result", result)
 
