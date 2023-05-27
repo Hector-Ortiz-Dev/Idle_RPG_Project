@@ -34,6 +34,7 @@ tools:context=".ShopActivity">
             android:layout_weight="1"
             android:textColor="@color/primary"
             android:textStyle="bold"
+            android:textSize="20dp"
             android:text="[Username]"/>
 
         <TextView
@@ -42,6 +43,7 @@ tools:context=".ShopActivity">
             android:layout_height="wrap_content"
             android:textColor="@color/primary"
             android:textStyle="bold"
+            android:textSize="20dp"
             android:text="Coins: [Coins]" />
 
     </LinearLayout>
@@ -91,6 +93,9 @@ tools:context=".ShopActivity">
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/accept"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="16dp"
             android:text="[$Precio]"
             android:padding="8dp"/>
 
@@ -129,6 +134,9 @@ tools:context=".ShopActivity">
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/accept"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="16dp"
             android:text="[$Precio]"
             android:padding="8dp"/>
 
@@ -182,6 +190,9 @@ tools:context=".ShopActivity">
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/accept"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="16dp"
                 android:text="[$Precio]"
                 android:padding="8dp"/>
 
@@ -220,6 +231,9 @@ tools:context=".ShopActivity">
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/accept"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="16dp"
                 android:text="[$Precio]"
                 android:padding="8dp"/>
 
@@ -233,6 +247,9 @@ tools:context=".ShopActivity">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Back"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="16dp"
         android:layout_marginRight="12dp"
         android:layout_marginLeft="12dp"
         android:layout_marginTop="5dp"
