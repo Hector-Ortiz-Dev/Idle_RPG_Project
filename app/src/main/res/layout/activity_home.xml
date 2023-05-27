@@ -83,8 +83,8 @@
                 app:layout_constraintHorizontal_bias="0.842"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/enemy1"
-                tools:srcCompat="@drawable/enemy1" />
+                app:srcCompat="@drawable/ic_launcher_background"
+                tools:srcCompat="@drawable/ic_launcher_background" />
 
             <ImageView
                 android:id="@+id/icon"
@@ -95,8 +95,8 @@
                 app:layout_constraintHorizontal_bias="0.581"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/hp"
-                tools:srcCompat="@drawable/atk" />
+                app:srcCompat="@drawable/ic_launcher_background"
+                tools:srcCompat="@drawable/ic_launcher_background" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/character"

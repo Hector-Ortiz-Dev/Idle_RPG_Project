@@ -3,6 +3,8 @@ package com.example.idle_rpg_project
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.util.Log
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.*
@@ -10,11 +12,13 @@ import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isGone
 import com.bumptech.glide.Glide
+import com.example.idle_rpg_project.models.Enemigo
 import com.example.idle_rpg_project.models.Jugador
 import com.example.idle_rpg_project.models.Usuario
 import com.example.idle_rpg_project.services.JugadorService
 import com.example.idle_rpg_project.services.UsuarioService
 import com.example.idle_rpg_project.utils.DBHelper
+import com.example.idle_rpg_project.utils.SystemBattle
 import showCustomToast
 
 @Suppress("DEPRECATION")
@@ -23,6 +27,7 @@ class MainActivity : AppCompatActivity() {
 
     var user = Usuario()
     var player = Jugador()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
@@ -81,9 +86,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun ejecutarFuncion() {
-        // Lógica de tu función cíclica aquí
-//        Log.e("test", "gracias mundillo :)")
 
+        //Comienza la batalla
+        val systemBattle = SystemBattle()
+
+        val enemyIA = Enemigo().generateEnemy(player.nivel!!)
+
+        val result = systemBattle.battle(player, enemyIA)
+
+
+        Log.e("Result", result)
+
+        //Lógica de tu función cíclica aquí
         val animation = AnimationUtils.loadAnimation(this, R.anim.fade_icon)
         val icon = findViewById<ImageView>(R.id.icon)
         icon.startAnimation(animation)
@@ -139,9 +153,11 @@ class MainActivity : AppCompatActivity() {
         getUserById(id!!)
         getJugador(id!!)
 
-        isRunning = true
-        // Iniciar el ciclo
-        startCyclicExecution()
+        Handler().postDelayed({
+            isRunning = true
+            // Iniciar el ciclo
+            startCyclicExecution()
+        }, 1000)
     }
 
     override fun onBackPressed() {
