@@ -104,11 +104,11 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        val animation2 = AnimationUtils.loadAnimation(this, R.anim.bounce)
+        val animation2 = AnimationUtils.loadAnimation(this, R.anim.bounce_move_character)
         val character = findViewById<ConstraintLayout>(R.id.character)
         character.startAnimation(animation2)
 
-        val animation3 = AnimationUtils.loadAnimation(this, R.anim.bounce_move)
+        val animation3 = AnimationUtils.loadAnimation(this, R.anim.bounce_move_enemy)
         val enemy = findViewById<ImageView>(R.id.enemy)
         enemy.startAnimation(animation3)
     }
