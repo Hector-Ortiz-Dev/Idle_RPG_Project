@@ -104,7 +104,7 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        val animation2 = AnimationUtils.loadAnimation(this, R.anim.bounce_move_character)
+        val animation2 = AnimationUtils.loadAnimation(this, R.anim.bounce)
         val character = findViewById<ConstraintLayout>(R.id.character)
         character.startAnimation(animation2)
 

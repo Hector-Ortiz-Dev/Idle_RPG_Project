@@ -62,9 +62,6 @@
         <activity
             android:name=".RecyclerviewActivity"
             android:exported="false" />
-        <activity
-            android:name=".ShopActivity"
-            android:exported="false" />
     </application>
 
 </manifest>
