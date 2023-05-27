@@ -43,6 +43,11 @@ class CreateGuildActivity : AppCompatActivity() {
     private fun addGremio() {
         val data = Gremio(method = "post", nombre = txtNameGuild.text.toString(), cantidad = spinnerSize.getSelectedItem().toString().toInt())
 
+        if(data.nombre.isNullOrEmpty()) {
+            Toast(this).showCustomToast (getString(R.string.error_color),"${getString(R.string.text_required_fields)}",this)
+            return
+        }
+
         val gremioService = GremioService()
 
         gremioService.post(data) {

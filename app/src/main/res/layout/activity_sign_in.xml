@@ -29,24 +29,12 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp" />
 
-    <Button
-        android:id="@+id/select_image_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Select image"
-        android:background="@color/primary"
-        android:textColor="@color/white"
-        android:layout_below="@id/user_image"
-        android:layout_marginTop="0dp"
-        android:layout_marginLeft="120dp"
-        android:layout_marginRight="120dp"/>
-
     <!-- Campo para introducir el nombre -->
     <EditText
         android:id="@+id/name_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/select_image_button"
+        android:layout_below="@id/user_image"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="32dp"

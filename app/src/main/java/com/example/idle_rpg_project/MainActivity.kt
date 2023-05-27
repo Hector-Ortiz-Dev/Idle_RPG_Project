@@ -93,8 +93,8 @@ class MainActivity : AppCompatActivity() {
     private fun stopCyclicExecution() {
         isRunning = false
 
-        // Iniciar el ciclo
-        startCyclicExecution()
+//        // Iniciar el ciclo
+//        startCyclicExecution()
     }
 
     override fun onResume() {

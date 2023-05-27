@@ -53,6 +53,13 @@ class EditProfileActivity : AppCompatActivity() {
             apellidos = apellidosInput.text.toString()
         )
 
+        if(data.username.isNullOrEmpty() ||
+            data.nombre.isNullOrEmpty() ||
+            data.apellidos.isNullOrEmpty()) {
+            Toast(this).showCustomToast (getString(R.string.error_color),"${getString(R.string.text_required_fields)}",this)
+            return
+        }
+
         val usuarioService = UsuarioService()
 
         usuarioService.post(data) {

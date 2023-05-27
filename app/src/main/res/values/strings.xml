@@ -28,6 +28,8 @@
     <string name="text_members">Members:</string>
     <string name="text_guild_master">Guild Master:</string>
     <string name="text_guild_request">Guild Request</string>
+    <string name="text_required_fields">Fill required fields.</string>
+    <string name="text_password_not_match">Password doesnt match</string>
 
     <string-array name="colors">
         <item>blue</item>

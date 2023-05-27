@@ -33,6 +33,20 @@ class SignInActivity : AppCompatActivity() {
         val confirmPasswordInput = findViewById<EditText>(R.id.confirm_password_input).text.toString()
         val data = Usuario(method = "post", username = usernameInput, nombre = nameInput, apellidos = lastNameInput, correo = emailInput, contrasena = passwordInput)
 
+        if(data.username.isNullOrEmpty() ||
+                data.nombre.isNullOrEmpty() ||
+                data.apellidos.isNullOrEmpty() ||
+                data.correo.isNullOrEmpty() ||
+                data.contrasena.isNullOrEmpty()) {
+            Toast(this).showCustomToast (getString(R.string.error_color),"${getString(R.string.text_required_fields)}",this)
+            return
+        }
+
+        if(passwordInput != confirmPasswordInput) {
+            Toast(this).showCustomToast (getString(R.string.error_color),"${getString(R.string.text_password_not_match)}",this)
+            return
+        }
+
         val usuarioService = UsuarioService()
 
         usuarioService.post(data) {
