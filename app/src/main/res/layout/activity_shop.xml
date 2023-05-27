@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="vertical"
-android:background="@color/background"
-tools:context=".ShopActivity">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/background"
+    tools:context=".ShopActivity">
 
 <!-- Título de la pantalla -->
 <TextView
@@ -65,7 +66,7 @@ tools:context=".ShopActivity">
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:background="primary"
+        android:background="@color/primary"
         android:padding="12dp">
 
         <!-- Imagen de la poción 1 -->
