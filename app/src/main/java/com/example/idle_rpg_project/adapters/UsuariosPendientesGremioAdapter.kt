@@ -11,15 +11,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isGone
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.idle_rpg_project.R
-import com.example.idle_rpg_project.models.Gremio
 import com.example.idle_rpg_project.models.Usuario
-import com.example.idle_rpg_project.services.GremioService
 import com.example.idle_rpg_project.services.UsuarioService
-import com.example.idle_rpg_project.utils.DBHelper
 import showCustomToast
 
 class UsuariosPendientesGremioAdapter(val context: Activity, val element: Int, private val mList: List<Usuario>) : RecyclerView.Adapter<UsuariosPendientesGremioAdapter.ViewHolder>() {

@@ -19,10 +19,10 @@ class SystemBattle(player: Jugador) {
         }
 
         //Log.e datos del jugador
-        Log.e("Player", player.toString())
+//        Log.e("Player", player.toString())
 
         //Log.e datos del enemigo
-        Log.e("Enemy", enemy.toString())
+//        Log.e("Enemy", enemy.toString())
 
         //Variables
         var result = ""
@@ -36,16 +36,16 @@ class SystemBattle(player: Jugador) {
         }else{
             enemy.spd!! * 10
         }
-        Log.e("Timeline", "Timeline meta: $timeline")
+//        Log.e("Timeline", "Timeline meta: $timeline")
 
         //Sumar velocidad a la posicion
         player.posicion = player.posicion?.plus(player.spd!!) //Suma la velocidad del jugador a su posicion
-        Log.e("PlayerPos", "Player position: " + player.posicion.toString())
+//        Log.e("PlayerPos", "Player position: " + player.posicion.toString())
         enemy.posicion = enemy.posicion?.plus(enemy.spd!!) //Suma la velocidad del enemigo a su posicion
-        Log.e("EnemyPos", "Enemy position: " + enemy.posicion.toString())
+//        Log.e("EnemyPos", "Enemy position: " + enemy.posicion.toString())
 
         //Comienza la batalla
-        result += "Comienza la batalla.\n"
+//        result += "Comienza la batalla.\n"
 
         // Turno del jugador
         if(player.posicion!! >= timeline) {

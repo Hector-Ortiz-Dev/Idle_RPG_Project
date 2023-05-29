@@ -1,19 +1,17 @@
 package com.example.idle_rpg_project
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.util.Log
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.isGone
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.idle_rpg_project.models.Enemigo
+import com.example.idle_rpg_project.adapters.HistoryBattleAdapter
 import com.example.idle_rpg_project.models.Jugador
 import com.example.idle_rpg_project.models.Usuario
 import com.example.idle_rpg_project.services.JugadorService
@@ -21,6 +19,8 @@ import com.example.idle_rpg_project.services.UsuarioService
 import com.example.idle_rpg_project.utils.DBHelper
 import com.example.idle_rpg_project.utils.SystemBattle
 import showCustomToast
+import java.util.*
+
 
 @Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
@@ -29,6 +29,9 @@ class MainActivity : AppCompatActivity() {
     var user = Usuario()
     var player = Jugador()
     private var systemBattle: SystemBattle? = null
+    private var history: ArrayList<String> = ArrayList()
+
+    private lateinit var recyclerview: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +45,24 @@ class MainActivity : AppCompatActivity() {
         // Load user data with character (coins, exp, etc...)
         val id = user.id
         getJugador(id!!)
+
+        recyclerview = findViewById(R.id.recycler_view_history)
+        // this creates a vertical layout Manager
+        recyclerview.layoutManager = LinearLayoutManager(this)
+//        // ArrayList of class ItemsViewModel
+//        val data = ArrayList<String>()
+//
+//        // This loop will create 20 Views containing
+//        // the image with the count of view
+//        for (i in 1..5) {
+//            data.add("Item $i")
+//        }
+//
+        // This will pass the ArrayList to our Adapter
+        val adapter = HistoryBattleAdapter(R.layout.card_history_battle, history)
+
+        // Setting the Adapter with the recyclerview
+        recyclerview.adapter = adapter
 
         val btnGuild = findViewById<ImageButton>(R.id.button_guild)
         val btnShop = findViewById<ImageButton>(R.id.button_shop)
@@ -93,37 +114,54 @@ class MainActivity : AppCompatActivity() {
         if (systemBattle == null)
             systemBattle = SystemBattle(player)
         val result = systemBattle!!.battle(player)
-
         Log.e("Result", result)
 
-        //Lógica de tu función cíclica aquí
-        val animation = AnimationUtils.loadAnimation(this, R.anim.fade_icon)
-        val icon = findViewById<ImageView>(R.id.icon)
-        icon.startAnimation(animation)
-        animation.setAnimationListener(object : Animation.AnimationListener {
-            override fun onAnimationStart(animation: Animation) {
-                // Método llamado cuando la animación comienza
-                icon.isGone = false
-            }
+        if (result.isNullOrEmpty()){
+            return
+        }
 
-            override fun onAnimationEnd(animation: Animation) {
-                // Método llamado cuando la animación termina
-                // Aquí puedes ejecutar el código que deseas después de la animación
-                icon.isGone = true
-            }
+//        // Es necesario para que muestre ordenado el desmadre en el recycler view
+        history.reverse()
+        history.add(result)
+        history.reverse()
 
-            override fun onAnimationRepeat(animation: Animation) {
-                // Método llamado cuando la animación se repite
-            }
-        })
+//        // This will pass the ArrayList to our Adapter
+//        val adapter = HistoryBattleAdapter(R.layout.card_history_battle, history)
+//        // Setting the Adapter with the recyclerview
+//        recyclerview.adapter = adapter
+        Handler(Looper.getMainLooper()).post {
+            recyclerview.getAdapter()?.notifyDataSetChanged()
+        }
 
-        val animation2 = AnimationUtils.loadAnimation(this, R.anim.bounce)
-        val character = findViewById<ConstraintLayout>(R.id.character)
-        character.startAnimation(animation2)
 
-        val animation3 = AnimationUtils.loadAnimation(this, R.anim.bounce_move_enemy)
-        val enemy = findViewById<ImageView>(R.id.enemy)
-        enemy.startAnimation(animation3)
+//        //Lógica de tu función cíclica aquí
+//        val animation = AnimationUtils.loadAnimation(this, R.anim.fade_icon)
+//        val icon = findViewById<ImageView>(R.id.icon)
+//        icon.startAnimation(animation)
+//        animation.setAnimationListener(object : Animation.AnimationListener {
+//            override fun onAnimationStart(animation: Animation) {
+//                // Método llamado cuando la animación comienza
+//                icon.isGone = false
+//            }
+//
+//            override fun onAnimationEnd(animation: Animation) {
+//                // Método llamado cuando la animación termina
+//                // Aquí puedes ejecutar el código que deseas después de la animación
+//                icon.isGone = true
+//            }
+//
+//            override fun onAnimationRepeat(animation: Animation) {
+//                // Método llamado cuando la animación se repite
+//            }
+//        })
+//
+//        val animation2 = AnimationUtils.loadAnimation(this, R.anim.bounce)
+//        val character = findViewById<ConstraintLayout>(R.id.character)
+//        character.startAnimation(animation2)
+//
+//        val animation3 = AnimationUtils.loadAnimation(this, R.anim.bounce_move_enemy)
+//        val enemy = findViewById<ImageView>(R.id.enemy)
+//        enemy.startAnimation(animation3)
     }
 
     override fun onDestroy() {
@@ -204,10 +242,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-        //performing negative action
-        builder.setNegativeButton(R.string.no){ _, _ ->
-            //Toast(this).showCustomToast ("#DD0000","Incorrect user or password, try again.", this)
-        }
+//        //performing negative action
+//        builder.setNegativeButton(R.string.no){ _, _ ->
+//            //Toast(this).showCustomToast ("#DD0000","Incorrect user or password, try again.", this)
+//        }
 
         // Create the AlertDialog
         val alertDialog: AlertDialog = builder.create()
