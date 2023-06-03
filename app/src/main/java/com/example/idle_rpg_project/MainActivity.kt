@@ -150,17 +150,16 @@ class MainActivity : AppCompatActivity() {
         //Comienza la batalla
         if (systemBattle == null)
             systemBattle = SystemBattle(player)
-        val result = systemBattle!!.battle(player)
 
-//        val actualEnemy = systemBattle!!.getEnemy()
-//        if(actualEnemy.posicion == 0){
-//            val enemyUrl = "https://movilesmx.000webhostapp.com/idle_rpg/images/enemies/${actualEnemy.indexImg}.png"
-//            Glide.with(context).load(enemyUrl).into(enemyImg)
-//        }
+        var result = systemBattle!!.detalleBattle
+        var estado = systemBattle!!.estadoTxt
+//        val result = systemBattle!!.battle(player)
+        systemBattle!!.cycleBattle(player)
+        systemBattle!!.startActionBattle(player)
 
         Log.e("Result", result)
 
-        if (result.isNullOrEmpty()){
+        if (result.isNullOrEmpty() && estado == "Espera"){
             return
         }
 

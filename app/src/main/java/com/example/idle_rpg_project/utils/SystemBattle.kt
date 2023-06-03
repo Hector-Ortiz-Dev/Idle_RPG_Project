@@ -12,7 +12,7 @@ class SystemBattle(player: Jugador) {
 
     public var estado = arrayOf("Inicio", "Turno Jugador", "Turno Enemigo", "Victoria", "Derrota", "Level Up", "Espera")
     public var estadoIndex = 0
-    public var estadoTxt = ""
+    public var estadoTxt = "Inicio"
     public var detalleBattle = ""
 
     //Sistema de batalla idle rpg
@@ -171,6 +171,7 @@ class SystemBattle(player: Jugador) {
             // ESTADO DEL JUEGO
             estadoTxt = estado[6]
             estadoIndex = 6
+            detalleBattle = ""
             return
         }
     }
@@ -185,6 +186,9 @@ class SystemBattle(player: Jugador) {
                 enemy!!.receiveDamage(damage) //Recibe daño el enemigo
                 detalleBattle += "${player.nombre} ataca a ${enemy!!.nombre} y le hace $damage de daño.\n${enemy!!.nombre} tiene ${enemy!!.hp} de vida.\n" //Imprime el resultado del turno
 
+                estadoTxt = estado[6]
+                estadoIndex = 6
+
                 if (enemy!!.hp!! <= 0) { //Si el enemigo muere // Victoria
                     // ESTADO DEL JUEGO
                     estadoTxt = estado[3]
@@ -198,6 +202,9 @@ class SystemBattle(player: Jugador) {
                 var damage = enemy!!.attack(player) //Ataca el enemigo
                 player.receiveDamage(damage) //Recibe daño el jugador
                 detalleBattle += "${enemy!!.nombre} ataca a ${player.nombre} y le hace $damage de daño.\n${player.nombre} tiene ${player.hp} de vida.\n" //Imprime el resultado del turno
+
+                estadoTxt = estado[6]
+                estadoIndex = 6
 
                 if(player.hp!! <= 0){ //Si el jugador muere // Derrota
                     detalleBattle += "${player.nombre} ha muerto.\n" //Imprime que el jugador ha muerto
@@ -216,6 +223,9 @@ class SystemBattle(player: Jugador) {
                 player.receiveCoins(enemy!!.monedas!!) //Recibe monedas el jugador
                 detalleBattle += "${player.nombre} ha ganado ${enemy!!.monedas} monedas.\n" //Imprime las monedas empanadas
 
+                estadoTxt = estado[6]
+                estadoIndex = 6
+
                 enemy = null
                 if (levelUp){ //Si el jugador sube de nivel
                     // ESTADO DEL JUEGO
@@ -229,10 +239,16 @@ class SystemBattle(player: Jugador) {
                 detalleBattle += "${player.nombre} ha perdido $coins monedas.\n" //Imprime que el jugador ha perdido todas sus monedas
                 player.revive() //Revive el jugador
                 enemy = Enemigo().generateEnemy(player.nivel!!) //Genera un nuevo enemigo
+
+                estadoTxt = estado[6]
+                estadoIndex = 6
             }
             "Level Up" -> {
                 detalleBattle = "${player.nombre} ha subido de nivel.\n" //Imprime que el jugador ha subido de nivel
                 //player.levelUp() //Sube de nivel el jugador
+
+                estadoTxt = estado[6]
+                estadoIndex = 6
             }
         }
     }
