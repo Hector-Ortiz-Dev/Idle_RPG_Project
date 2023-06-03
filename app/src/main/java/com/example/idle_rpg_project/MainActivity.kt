@@ -162,11 +162,13 @@ class MainActivity : AppCompatActivity() {
         if (result.isNullOrEmpty() && estado == "Espera"){
             return
         }
-
+        else if (!result.isNullOrEmpty()){
 //        // Es necesario para que muestre ordenado el desmadre en el recycler view
-        history.reverse()
-        history.add(result)
-        history.reverse()
+            history.reverse()
+            history.add(result)
+            history.reverse()
+        }
+
 
 //        // This will pass the ArrayList to our Adapter
 //        val adapter = HistoryBattleAdapter(R.layout.card_history_battle, history)
