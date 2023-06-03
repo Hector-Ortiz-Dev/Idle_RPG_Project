@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.idle_rpg_project.adapters.HistoryBattleAdapter
+import com.example.idle_rpg_project.models.Enemigo
 import com.example.idle_rpg_project.models.Jugador
 import com.example.idle_rpg_project.models.Usuario
 import com.example.idle_rpg_project.services.JugadorService
@@ -118,43 +119,42 @@ class MainActivity : AppCompatActivity() {
 
     private fun ejecutarFuncion() {
 
-        //Lógica de tu función cíclica aquí
-        val animation = AnimationUtils.loadAnimation(this, R.anim.fade_icon)
-        val icon = findViewById<ImageView>(R.id.icon)
-        icon.startAnimation(animation)
-        animation.setAnimationListener(object : Animation.AnimationListener {
-            override fun onAnimationStart(animation: Animation) {
-                // Método llamado cuando la animación comienza
-                icon.isGone = false
-            }
-
-            override fun onAnimationEnd(animation: Animation) {
-                // Método llamado cuando la animación termina
-                // Aquí puedes ejecutar el código que deseas después de la animación
-                icon.isGone = true
-            }
-
-            override fun onAnimationRepeat(animation: Animation) {
-                // Método llamado cuando la animación se repite
-            }
-        })
-
-        val animation2 = AnimationUtils.loadAnimation(this, R.anim.bounce)
-        val character = findViewById<ConstraintLayout>(R.id.character)
-        character.startAnimation(animation2)
-
-        val animation3 = AnimationUtils.loadAnimation(this, R.anim.bounce_move_enemy)
-        val enemy = findViewById<ImageView>(R.id.enemy)
-        enemy.startAnimation(animation3)
+//        //Lógica de tu función cíclica aquí
+//        val animation = AnimationUtils.loadAnimation(this, R.anim.fade_icon)
+//        val icon = findViewById<ImageView>(R.id.icon)
+//        icon.startAnimation(animation)
+//        animation.setAnimationListener(object : Animation.AnimationListener {
+//            override fun onAnimationStart(animation: Animation) {
+//                // Método llamado cuando la animación comienza
+//                icon.isGone = false
+//            }
+//
+//            override fun onAnimationEnd(animation: Animation) {
+//                // Método llamado cuando la animación termina
+//                // Aquí puedes ejecutar el código que deseas después de la animación
+//                icon.isGone = true
+//            }
+//
+//            override fun onAnimationRepeat(animation: Animation) {
+//                // Método llamado cuando la animación se repite
+//            }
+//        })
+//
+//        val animation2 = AnimationUtils.loadAnimation(this, R.anim.bounce)
+//        val character = findViewById<ConstraintLayout>(R.id.character)
+//        character.startAnimation(animation2)
+//
+//        val animation3 = AnimationUtils.loadAnimation(this, R.anim.bounce_move_enemy)
+//        val enemy = findViewById<ImageView>(R.id.enemy)
+//        enemy.startAnimation(animation3)
 
         //Comienza la batalla
         if (systemBattle == null)
             systemBattle = SystemBattle(player)
 
+        systemBattle!!.cycleBattle(player)
         var result = systemBattle!!.detalleBattle
         var estado = systemBattle!!.estadoTxt
-//        val result = systemBattle!!.battle(player)
-        systemBattle!!.cycleBattle(player)
         systemBattle!!.startActionBattle(player)
 
         Log.e("Result", result)
@@ -163,17 +163,34 @@ class MainActivity : AppCompatActivity() {
             return
         }
         else if (!result.isNullOrEmpty()){
-//        // Es necesario para que muestre ordenado el desmadre en el recycler view
+            // Es necesario para que muestre ordenado el desmadre en el recycler view
             history.reverse()
             history.add(result)
             history.reverse()
         }
 
+        when (estado) {
+            "Turno Jugador" -> {
+                val animation2 = AnimationUtils.loadAnimation(this, R.anim.bounce_move_character)
+                val character = findViewById<ConstraintLayout>(R.id.character)
+                character.startAnimation(animation2)
 
-//        // This will pass the ArrayList to our Adapter
-//        val adapter = HistoryBattleAdapter(R.layout.card_history_battle, history)
-//        // Setting the Adapter with the recyclerview
-//        recyclerview.adapter = adapter
+                val animation3 = AnimationUtils.loadAnimation(this, R.anim.bounce)
+                val enemy = findViewById<ImageView>(R.id.enemy)
+                enemy.startAnimation(animation3)
+            }
+            "Turno Enemigo" -> {
+                val animation2 = AnimationUtils.loadAnimation(this, R.anim.bounce)
+                val character = findViewById<ConstraintLayout>(R.id.character)
+                character.startAnimation(animation2)
+
+                val animation3 = AnimationUtils.loadAnimation(this, R.anim.bounce_move_enemy)
+                val enemy = findViewById<ImageView>(R.id.enemy)
+                enemy.startAnimation(animation3)
+            }
+        }
+
+        // Muestra enemigos y muestra nuevos elementos en recycler view
         Handler(Looper.getMainLooper()).post {
             recyclerview.getAdapter()?.notifyDataSetChanged()
 
