@@ -8,6 +8,7 @@ data class Enemigo(
     val id:Int? = null,
     val nombre:String? = null,
     var hp:Int? = null,
+    var hpMax:Int? = null,
     val atk:Int? = null,
     val def:Int? = null,
     val spd:Int? = null,
@@ -47,11 +48,12 @@ data class Enemigo(
         val spd = nivel * Random.nextInt(4, 9)
         val exp = nivel * Random.nextInt(10, 20)
         val monedas = nivel * Random.nextInt(10, 20)
-        val nameFinal = "$name Lv.$nivel"
+        val nameFinal = "${type_enemies[index - 1]} Lv.$nivel"
         return Enemigo(
             nombre = nameFinal,
             nivel = nivel,
             hp = hp,
+            hpMax = hp,
             atk = atk,
             def = def,
             spd = spd,
