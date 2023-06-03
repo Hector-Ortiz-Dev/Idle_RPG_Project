@@ -107,4 +107,8 @@ class SystemBattle(player: Jugador) {
         return result
     }
 
+    fun getEnemy():Enemigo {
+        return this.enemy
+    }
+
 }

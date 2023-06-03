@@ -1,13 +1,18 @@
 package com.example.idle_rpg_project
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isGone
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -26,12 +31,15 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
     private var isRunning: Boolean = false
 
+    lateinit var context: Activity
     var user = Usuario()
     var player = Jugador()
     private var systemBattle: SystemBattle? = null
     private var history: ArrayList<String> = ArrayList()
 
     private lateinit var recyclerview: RecyclerView
+
+    private lateinit var enemyImg: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,18 +54,12 @@ class MainActivity : AppCompatActivity() {
         val id = user.id
         getJugador(id!!)
 
+        initializeViews()
+
         recyclerview = findViewById(R.id.recycler_view_history)
         // this creates a vertical layout Manager
         recyclerview.layoutManager = LinearLayoutManager(this)
-//        // ArrayList of class ItemsViewModel
-//        val data = ArrayList<String>()
-//
-//        // This loop will create 20 Views containing
-//        // the image with the count of view
-//        for (i in 1..5) {
-//            data.add("Item $i")
-//        }
-//
+
         // This will pass the ArrayList to our Adapter
         val adapter = HistoryBattleAdapter(R.layout.card_history_battle, history)
 
@@ -92,6 +94,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun initializeViews() {
+        context = this
+
+        enemyImg = findViewById(R.id.enemy)
+    }
+
     private fun startCyclicExecution() {
         isRunning = true
 
@@ -110,10 +118,46 @@ class MainActivity : AppCompatActivity() {
 
     private fun ejecutarFuncion() {
 
+        //Lógica de tu función cíclica aquí
+        val animation = AnimationUtils.loadAnimation(this, R.anim.fade_icon)
+        val icon = findViewById<ImageView>(R.id.icon)
+        icon.startAnimation(animation)
+        animation.setAnimationListener(object : Animation.AnimationListener {
+            override fun onAnimationStart(animation: Animation) {
+                // Método llamado cuando la animación comienza
+                icon.isGone = false
+            }
+
+            override fun onAnimationEnd(animation: Animation) {
+                // Método llamado cuando la animación termina
+                // Aquí puedes ejecutar el código que deseas después de la animación
+                icon.isGone = true
+            }
+
+            override fun onAnimationRepeat(animation: Animation) {
+                // Método llamado cuando la animación se repite
+            }
+        })
+
+        val animation2 = AnimationUtils.loadAnimation(this, R.anim.bounce)
+        val character = findViewById<ConstraintLayout>(R.id.character)
+        character.startAnimation(animation2)
+
+        val animation3 = AnimationUtils.loadAnimation(this, R.anim.bounce_move_enemy)
+        val enemy = findViewById<ImageView>(R.id.enemy)
+        enemy.startAnimation(animation3)
+
         //Comienza la batalla
         if (systemBattle == null)
             systemBattle = SystemBattle(player)
         val result = systemBattle!!.battle(player)
+
+//        val actualEnemy = systemBattle!!.getEnemy()
+//        if(actualEnemy.posicion == 0){
+//            val enemyUrl = "https://movilesmx.000webhostapp.com/idle_rpg/images/enemies/${actualEnemy.indexImg}.png"
+//            Glide.with(context).load(enemyUrl).into(enemyImg)
+//        }
+
         Log.e("Result", result)
 
         if (result.isNullOrEmpty()){
@@ -131,37 +175,11 @@ class MainActivity : AppCompatActivity() {
 //        recyclerview.adapter = adapter
         Handler(Looper.getMainLooper()).post {
             recyclerview.getAdapter()?.notifyDataSetChanged()
+
+            val actualEnemy = systemBattle!!.getEnemy()
+            val enemyUrl = "https://movilesmx.000webhostapp.com/idle_rpg/images/enemies/${actualEnemy.indexImg}.png"
+            Glide.with(context).load(enemyUrl).into(enemyImg)
         }
-
-
-//        //Lógica de tu función cíclica aquí
-//        val animation = AnimationUtils.loadAnimation(this, R.anim.fade_icon)
-//        val icon = findViewById<ImageView>(R.id.icon)
-//        icon.startAnimation(animation)
-//        animation.setAnimationListener(object : Animation.AnimationListener {
-//            override fun onAnimationStart(animation: Animation) {
-//                // Método llamado cuando la animación comienza
-//                icon.isGone = false
-//            }
-//
-//            override fun onAnimationEnd(animation: Animation) {
-//                // Método llamado cuando la animación termina
-//                // Aquí puedes ejecutar el código que deseas después de la animación
-//                icon.isGone = true
-//            }
-//
-//            override fun onAnimationRepeat(animation: Animation) {
-//                // Método llamado cuando la animación se repite
-//            }
-//        })
-//
-//        val animation2 = AnimationUtils.loadAnimation(this, R.anim.bounce)
-//        val character = findViewById<ConstraintLayout>(R.id.character)
-//        character.startAnimation(animation2)
-//
-//        val animation3 = AnimationUtils.loadAnimation(this, R.anim.bounce_move_enemy)
-//        val enemy = findViewById<ImageView>(R.id.enemy)
-//        enemy.startAnimation(animation3)
     }
 
     override fun onDestroy() {

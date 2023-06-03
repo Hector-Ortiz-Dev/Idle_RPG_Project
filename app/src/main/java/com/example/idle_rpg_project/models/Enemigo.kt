@@ -14,21 +14,39 @@ data class Enemigo(
     val nivel:Int? = null,
     val exp:Int? = null,
     val monedas:Int? = null,
-    var posicion:Int? = 0
+    var posicion:Int? = 0,
+    val indexImg:Int = 0,
     ) : Serializable {
 
     fun generateEnemy(level: Int): Enemigo {
+        var type_enemies = arrayOf(
+            "Rizk", "Darck Rizk",
+            "Gubby", "Dark Gubby",
+            "Slug", "Dark Slug",
+            "Worp", "Dark Worp",
+            "Dag", "Dark Dag",
+            "Toñafro", "Dark Toñafro")
+
         val name = "Enemigo"
         var nivel = level + Random.nextInt(-1, 3)
         if(nivel < 1){
             nivel = 1
         }
-        val hp = level * Random.nextInt(10, 20)
-        val atk = level * Random.nextInt(3, 7)
-        val def = level * Random.nextInt(2, 5)
-        val spd = level * Random.nextInt(4, 9)
-        val exp = level * Random.nextInt(10, 20)
-        val monedas = level * Random.nextInt(10, 20)
+
+        var index = 0
+        if(level >= 40) {
+            index = Random.nextInt(1, 12)
+        }
+        else {
+            index = Random.nextInt(1, 10)
+        }
+
+        val hp = nivel * Random.nextInt(10, 20)
+        val atk = nivel * Random.nextInt(3, 7)
+        val def = nivel * Random.nextInt(2, 5)
+        val spd = nivel * Random.nextInt(4, 9)
+        val exp = nivel * Random.nextInt(10, 20)
+        val monedas = nivel * Random.nextInt(10, 20)
         val nameFinal = "$name Lv.$nivel"
         return Enemigo(
             nombre = nameFinal,
@@ -38,7 +56,9 @@ data class Enemigo(
             def = def,
             spd = spd,
             exp = exp,
-            monedas = monedas)
+            monedas = monedas,
+            indexImg = index
+        )
     }
 
     fun receiveDamage(damage:Int):Int{
