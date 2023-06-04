@@ -99,6 +99,9 @@ class MainActivity : AppCompatActivity() {
         context = this
 
         enemyImg = findViewById(R.id.enemy)
+
+        val icon = findViewById<ImageView>(R.id.icon)
+        icon.isGone = true
     }
 
     private fun startCyclicExecution() {
@@ -196,6 +199,26 @@ class MainActivity : AppCompatActivity() {
                     enemy.startAnimation(animation3)
                 }
             }
+
+            val animation = AnimationUtils.loadAnimation(this, R.anim.fade_icon)
+            val icon = findViewById<ImageView>(R.id.icon)
+            icon.startAnimation(animation)
+            animation.setAnimationListener(object : Animation.AnimationListener {
+                override fun onAnimationStart(animation: Animation) {
+                    // Método llamado cuando la animación comienza
+                    icon.isGone = false
+                }
+
+                override fun onAnimationEnd(animation: Animation) {
+                    // Método llamado cuando la animación termina
+                    // Aquí puedes ejecutar el código que deseas después de la animación
+                    icon.isGone = true
+                }
+
+                override fun onAnimationRepeat(animation: Animation) {
+                    // Método llamado cuando la animación se repite
+                }
+            })
 
         }
     }

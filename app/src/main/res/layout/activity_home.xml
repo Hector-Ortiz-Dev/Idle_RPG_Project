@@ -93,7 +93,7 @@
                 app:layout_constraintHorizontal_bias="0.581"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/hp"
+                app:srcCompat="@drawable/atk"
                 tools:srcCompat="@drawable/ic_launcher_background" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
