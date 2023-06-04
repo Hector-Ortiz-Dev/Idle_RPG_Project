@@ -74,22 +74,32 @@ class MainActivity : AppCompatActivity() {
         val btnLogout = findViewById<ImageButton>(R.id.button_exit)
 
         btnGuild.setOnClickListener {
+            val anim = AnimationUtils.loadAnimation(this, R.anim.bounce)
+            btnGuild.startAnimation(anim)
             openGuildActivity()
             isRunning = false
         }
         btnShop.setOnClickListener {
+            val anim = AnimationUtils.loadAnimation(this, R.anim.bounce)
+            btnShop.startAnimation(anim)
             openShopActivity()
             isRunning = false
         }
         btnSword.setOnClickListener {
+            val anim = AnimationUtils.loadAnimation(this, R.anim.bounce)
+            btnSword.startAnimation(anim)
             openCharacterActivity()
             isRunning = false
         }
         btnOptions.setOnClickListener {
+            val anim = AnimationUtils.loadAnimation(this, R.anim.bounce)
+            btnOptions.startAnimation(anim)
             openEditProfileActivity()
             isRunning = false
         }
         btnLogout.setOnClickListener {
+            val anim = AnimationUtils.loadAnimation(this, R.anim.bounce)
+            btnLogout.startAnimation(anim)
             showAlertDialog()
             isRunning = false
         }
@@ -301,10 +311,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-//        //performing negative action
-//        builder.setNegativeButton(R.string.no){ _, _ ->
-//            //Toast(this).showCustomToast ("#DD0000","Incorrect user or password, try again.", this)
-//        }
+        //performing negative action
+        builder.setNegativeButton(R.string.no){ _, _ ->
+            //Toast(this).showCustomToast ("#DD0000","Incorrect user or password, try again.", this)
+        }
 
         // Create the AlertDialog
         val alertDialog: AlertDialog = builder.create()
