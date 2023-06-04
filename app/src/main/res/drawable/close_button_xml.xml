@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Button image close button -->
+    <item
+        android:drawable="@drawable/close_button"
+        android:state_pressed="false" />
+
+</selector>

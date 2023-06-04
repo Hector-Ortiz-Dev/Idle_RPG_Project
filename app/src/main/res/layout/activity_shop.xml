@@ -245,17 +245,14 @@
     <!-- Botón de salir -->
     <Button
         android:id="@+id/btnBack"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Back"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:textSize="16dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginRight="12dp"
         android:layout_marginLeft="12dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:background="@color/cancel1"
+        android:layout_gravity="center"
+        android:background="@drawable/close_button"
         android:padding="12dp"/>
 
 </LinearLayout>
