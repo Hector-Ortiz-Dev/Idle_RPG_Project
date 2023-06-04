@@ -8,7 +8,7 @@ import com.example.idle_rpg_project.models.Enemigo
 import com.example.idle_rpg_project.models.Jugador
 
 class SystemBattle(player: Jugador) {
-    private var enemy: Enemigo? = Enemigo().generateEnemy(player.nivel!!) //Genera un nuevo enemigo
+    private var enemy: Enemigo? = null //Genera un nuevo enemigo
 
     public var estado = arrayOf("Inicio", "Turno Jugador", "Turno Enemigo", "Victoria", "Derrota", "Level Up", "Espera")
     public var estadoIndex = 0
@@ -238,7 +238,7 @@ class SystemBattle(player: Jugador) {
                 var coins = player.loseCoins(175 * player.nivel!!) //Pierde todas las monedas
                 detalleBattle += "${player.nombre} ha perdido $coins monedas.\n" //Imprime que el jugador ha perdido todas sus monedas
                 player.revive() //Revive el jugador
-                enemy = Enemigo().generateEnemy(player.nivel!!) //Genera un nuevo enemigo
+                enemy = null //Genera un nuevo enemigo
 
                 estadoTxt = estado[6]
                 estadoIndex = 6

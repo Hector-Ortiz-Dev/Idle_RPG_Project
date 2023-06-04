@@ -153,50 +153,50 @@ class MainActivity : AppCompatActivity() {
             systemBattle = SystemBattle(player)
 
         systemBattle!!.cycleBattle(player)
-        var result = systemBattle!!.detalleBattle
         var estado = systemBattle!!.estadoTxt
         systemBattle!!.startActionBattle(player)
+        var result = systemBattle!!.detalleBattle
 
+        Log.e("Result", estado)
         Log.e("Result", result)
 
-        if (result.isNullOrEmpty() && estado == "Espera"){
-            return
+        if(estado == "Inicio") {
+            // Muestra enemigos y muestra nuevos elementos en recycler view
+            Handler(Looper.getMainLooper()).post {
+                val actualEnemy = systemBattle!!.getEnemy()
+                val enemyUrl = "https://movilesmx.000webhostapp.com/idle_rpg/images/enemies/${actualEnemy.indexImg}.png"
+                Glide.with(context).load(enemyUrl).into(enemyImg)
+            }
         }
-        else if (!result.isNullOrEmpty()){
-            // Es necesario para que muestre ordenado el desmadre en el recycler view
+        else if(!result.isNullOrEmpty()) {
             history.reverse()
             history.add(result)
             history.reverse()
-        }
-
-        when (estado) {
-            "Turno Jugador" -> {
-                val animation2 = AnimationUtils.loadAnimation(this, R.anim.bounce_move_character)
-                val character = findViewById<ConstraintLayout>(R.id.character)
-                character.startAnimation(animation2)
-
-                val animation3 = AnimationUtils.loadAnimation(this, R.anim.bounce)
-                val enemy = findViewById<ImageView>(R.id.enemy)
-                enemy.startAnimation(animation3)
+            Handler(Looper.getMainLooper()).post {
+                recyclerview.getAdapter()?.notifyDataSetChanged()
             }
-            "Turno Enemigo" -> {
-                val animation2 = AnimationUtils.loadAnimation(this, R.anim.bounce)
-                val character = findViewById<ConstraintLayout>(R.id.character)
-                character.startAnimation(animation2)
 
-                val animation3 = AnimationUtils.loadAnimation(this, R.anim.bounce_move_enemy)
-                val enemy = findViewById<ImageView>(R.id.enemy)
-                enemy.startAnimation(animation3)
+            when (estado) {
+                "Turno Jugador" -> {
+                    val animation2 = AnimationUtils.loadAnimation(this, R.anim.bounce_move_character)
+                    val character = findViewById<ConstraintLayout>(R.id.character)
+                    character.startAnimation(animation2)
+
+                    val animation3 = AnimationUtils.loadAnimation(this, R.anim.bounce)
+                    val enemy = findViewById<ImageView>(R.id.enemy)
+                    enemy.startAnimation(animation3)
+                }
+                "Turno Enemigo" -> {
+                    val animation2 = AnimationUtils.loadAnimation(this, R.anim.bounce)
+                    val character = findViewById<ConstraintLayout>(R.id.character)
+                    character.startAnimation(animation2)
+
+                    val animation3 = AnimationUtils.loadAnimation(this, R.anim.bounce_move_enemy)
+                    val enemy = findViewById<ImageView>(R.id.enemy)
+                    enemy.startAnimation(animation3)
+                }
             }
-        }
 
-        // Muestra enemigos y muestra nuevos elementos en recycler view
-        Handler(Looper.getMainLooper()).post {
-            recyclerview.getAdapter()?.notifyDataSetChanged()
-
-            val actualEnemy = systemBattle!!.getEnemy()
-            val enemyUrl = "https://movilesmx.000webhostapp.com/idle_rpg/images/enemies/${actualEnemy.indexImg}.png"
-            Glide.with(context).load(enemyUrl).into(enemyImg)
         }
     }
 
