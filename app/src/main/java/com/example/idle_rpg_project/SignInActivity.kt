@@ -2,6 +2,7 @@ package com.example.idle_rpg_project
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -20,8 +21,16 @@ class SignInActivity : AppCompatActivity() {
         val registerButton = findViewById<Button>(R.id.register_button)
         val loginButton = findViewById<Button>(R.id.login_button)
 
-        registerButton.setOnClickListener { signIn() }
-        loginButton.setOnClickListener { finish() }
+        registerButton.setOnClickListener {
+            val anim = AnimationUtils.loadAnimation(this, R.anim.bounce)
+            registerButton.startAnimation(anim)
+            signIn()
+        }
+        loginButton.setOnClickListener {
+            val anim = AnimationUtils.loadAnimation(this, R.anim.bounce)
+            loginButton.startAnimation(anim)
+            finish()
+        }
     }
 
     private fun signIn() {
