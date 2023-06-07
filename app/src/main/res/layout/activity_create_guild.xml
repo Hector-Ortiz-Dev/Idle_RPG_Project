@@ -80,35 +80,33 @@
         android:textColorHint="@color/textHint"
         android:textSize="20sp" />
 
-    <Button
-        android:id="@+id/btnCreateGuild"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_below="@id/createGuildSize"
-        android:layout_marginTop="40dp"
-        android:background="@color/accept"
-        android:text="Create Guild"
-        android:textColor="@color/white"
-        android:textSize="14dp"
-        tools:ignore="TextSizeCheck" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/btnBack"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/cancel1"
-            android:text="Back"
-            android:textColor="@color/white"
-            android:textSize="14dp"
+            android:id="@+id/btnCreateGuild"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="44dp"
+            android:background="@drawable/accept_button"
             app:layout_constraintBottom_toBottomOf="parent"
-            tools:ignore="TextSizeCheck"
-            tools:layout_editor_absoluteX="162dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.500"
+            app:layout_constraintStart_toEndOf="@+id/btnBack" />
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="44dp"
+            android:background="@drawable/close_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.250"
+            app:layout_constraintStart_toStartOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </RelativeLayout>

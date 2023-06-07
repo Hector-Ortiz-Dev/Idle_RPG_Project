@@ -131,30 +131,39 @@
         android:textColor="@color/primary"
         tools:ignore="TouchTargetSizeCheck" />
 
-    <!-- Botón para registrarse -->
-    <Button
-        android:id="@+id/register_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/register"
-        android:background="@color/accept"
-        android:textColor="@color/white"
-        android:layout_below="@id/confirm_password_input"
-        android:layout_marginTop="12dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"/>
 
-    <!-- Botón para ir a la pantalla de inicio de sesión -->
-    <Button
-        android:id="@+id/login_button"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/login"
-        android:background="@color/primary"
-        android:textColor="@color/white"
-        android:layout_below="@id/register_button"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"/>
+        android:layout_height="match_parent">
+
+    <!-- Botón para registrarse -->
+
+        <!-- Botón para ir a la pantalla de inicio de sesión -->
+
+        <Button
+            android:id="@+id/register_button"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="44dp"
+            android:background="@drawable/accept_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.500"
+            app:layout_constraintStart_toEndOf="@+id/login_button"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="44dp"
+            android:background="@drawable/close_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.250"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </RelativeLayout>

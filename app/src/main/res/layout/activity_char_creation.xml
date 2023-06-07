@@ -11,7 +11,6 @@
     tools:context=".CharCreationActivity">
 
     <!-- Título de la pantalla -->
-
     <TextView
         android:id="@+id/title_textview"
         android:layout_width="wrap_content"
@@ -162,10 +161,11 @@
                         android:textColor="@color/primary" />
 
                     <Spinner
+                        android:background="@drawable/style_spinner1"
                         android:id="@+id/spinner_head_type"
                         android:layout_width="wrap_content"
-                        android:layout_height="48dp"
-                        android:backgroundTint="@color/primary"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
                         android:entries="@array/types" />
 
                     <TextView
@@ -177,9 +177,10 @@
                         android:textColor="@color/primary" />
 
                     <Spinner
+                        android:background="@drawable/style_spinner1"
                         android:id="@+id/spinner_head_color"
                         android:layout_width="wrap_content"
-                        android:layout_height="48dp"
+                        android:layout_height="36dp"
                         android:layout_weight="1"
                         android:entries="@array/colors" />
                 </LinearLayout>
@@ -218,9 +219,10 @@
                         android:textColor="@color/primary" />
 
                     <Spinner
+                        android:background="@drawable/style_spinner1"
                         android:id="@+id/spinner_body_color"
                         android:layout_width="wrap_content"
-                        android:layout_height="48dp"
+                        android:layout_height="36dp"
                         android:layout_weight="1"
                         android:entries="@array/colors" />
                 </LinearLayout>
@@ -259,10 +261,11 @@
                         android:textColor="@color/primary" />
 
                     <Spinner
+                        android:background="@drawable/style_spinner1"
                         android:id="@+id/spinner_left_arm_type"
                         android:layout_width="wrap_content"
-                        android:layout_height="48dp"
-                        android:backgroundTint="@color/primary"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
                         android:entries="@array/types" />
 
                     <TextView
@@ -274,9 +277,10 @@
                         android:textColor="@color/primary" />
 
                     <Spinner
+                        android:background="@drawable/style_spinner1"
                         android:id="@+id/spinner_left_arm_color"
                         android:layout_width="wrap_content"
-                        android:layout_height="48dp"
+                        android:layout_height="36dp"
                         android:layout_weight="1"
                         android:entries="@array/colors" />
                 </LinearLayout>
@@ -312,14 +316,16 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/select_type"
-                        android:textColor="@color/primary" />
+                        android:textColor="@color/primary"/>
 
                     <Spinner
+                        android:background="@drawable/style_spinner1"
                         android:id="@+id/spinner_right_arm_type"
                         android:layout_width="wrap_content"
-                        android:layout_height="48dp"
-                        android:backgroundTint="@color/primary"
-                        android:entries="@array/types" />
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
+                        android:entries="@array/types"
+                        />
 
                     <TextView
                         android:id="@+id/txt_right_arm_color"
@@ -330,9 +336,10 @@
                         android:textColor="@color/primary" />
 
                     <Spinner
+                        android:background="@drawable/style_spinner1"
                         android:id="@+id/spinner_right_arm_color"
                         android:layout_width="wrap_content"
-                        android:layout_height="48dp"
+                        android:layout_height="36dp"
                         android:layout_weight="1"
                         android:entries="@array/colors" />
                 </LinearLayout>
@@ -371,10 +378,11 @@
                         android:textColor="@color/primary" />
 
                     <Spinner
+                        android:background="@drawable/style_spinner1"
                         android:id="@+id/spinner_left_leg_type"
                         android:layout_width="wrap_content"
-                        android:layout_height="48dp"
-                        android:backgroundTint="@color/primary"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
                         android:entries="@array/types" />
 
                     <TextView
@@ -386,9 +394,10 @@
                         android:textColor="@color/primary" />
 
                     <Spinner
+                        android:background="@drawable/style_spinner1"
                         android:id="@+id/spinner_left_leg_color"
                         android:layout_width="wrap_content"
-                        android:layout_height="48dp"
+                        android:layout_height="36dp"
                         android:layout_weight="1"
                         android:entries="@array/colors" />
                 </LinearLayout>
@@ -427,10 +436,11 @@
                         android:textColor="@color/primary" />
 
                     <Spinner
+                        android:background="@drawable/style_spinner1"
                         android:id="@+id/spinner_right_leg_type"
                         android:layout_width="wrap_content"
-                        android:layout_height="48dp"
-                        android:backgroundTint="@color/primary"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
                         android:entries="@array/types" />
 
                     <TextView
@@ -442,37 +452,39 @@
                         android:textColor="@color/primary" />
 
                     <Spinner
+                        android:background="@drawable/style_spinner1"
                         android:id="@+id/spinner_right_leg_color"
                         android:layout_width="wrap_content"
-                        android:layout_height="48dp"
+                        android:layout_height="36dp"
                         android:layout_weight="1"
                         android:entries="@array/colors" />
+
                 </LinearLayout>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/right_leg_textview">
+
+            <Button
+                android:id="@+id/cancel_button"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/close_button" />
+
+            <Button
+                android:id="@+id/confirm_button"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/accept_button" />
+        </LinearLayout>
+
         </LinearLayout>
 
     </ScrollView>
 
-    <Button
-        android:id="@+id/cancel_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/cancel1"
-        android:paddingHorizontal="50dp"
-        android:text="@string/back"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/confirm_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/accept"
-        android:paddingHorizontal="50dp"
-        android:text="@string/confirm"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
