@@ -365,6 +365,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 else{
                     player = it.records[0]
+                    player.nombre = user.username
 
                     val imgHead = findViewById<ImageView>(R.id.cabeza)
                     val imgTorso = findViewById<ImageView>(R.id.torso)

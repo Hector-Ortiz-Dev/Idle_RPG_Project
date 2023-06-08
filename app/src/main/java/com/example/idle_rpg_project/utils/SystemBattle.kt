@@ -133,6 +133,9 @@ class SystemBattle(player: Jugador) {
             // ESTADO DEL JUEGO
             estadoTxt = estado[0]
             estadoIndex = 0
+
+            // Para saber del siguiente nivel del player
+            player.getNextLevel()
             return
         }
 
