@@ -9,6 +9,7 @@
 
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -219,6 +220,7 @@
 
             <!-- Lado derecho -->
             <Button
+                android:id="@+id/btnUpgradeHp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
@@ -259,6 +261,7 @@
 
             <!-- Lado derecho -->
             <Button
+                android:id="@+id/btnUpgradeAtk"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
@@ -299,6 +302,7 @@
 
             <!-- Lado derecho -->
             <Button
+                android:id="@+id/btnUpgradeDef"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
@@ -339,6 +343,7 @@
 
             <!-- Lado derecho -->
             <Button
+                android:id="@+id/btnUpgradeSpd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
@@ -460,5 +465,15 @@
 
 
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/upgrade"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/ic_launcher_background" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var recyclerview: RecyclerView
 
     private lateinit var enemyImg: ImageView
+    private lateinit var upgradeImg: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -73,6 +74,13 @@ class MainActivity : AppCompatActivity() {
         val btnOptions = findViewById<ImageButton>(R.id.button_options)
         val btnLogout = findViewById<ImageButton>(R.id.button_exit)
 
+        val btnUpgradeHp = findViewById<Button>(R.id.btnUpgradeHp)
+        val btnUpgradeAtk = findViewById<Button>(R.id.btnUpgradeAtk)
+        val btnUpgradeDef = findViewById<Button>(R.id.btnUpgradeDef)
+        val btnUpgradeSpd = findViewById<Button>(R.id.btnUpgradeSpd)
+
+        upgradeImg = findViewById(R.id.upgrade)
+
         btnGuild.setOnClickListener {
             val anim = AnimationUtils.loadAnimation(this, R.anim.bounce)
             btnGuild.startAnimation(anim)
@@ -103,6 +111,59 @@ class MainActivity : AppCompatActivity() {
             showAlertDialog()
             isRunning = false
         }
+        btnUpgradeHp.setOnClickListener {
+            val anim = AnimationUtils.loadAnimation(this, R.anim.bounce)
+            btnUpgradeHp.startAnimation(anim)
+            val icon = "https://movilesmx.000webhostapp.com/idle_rpg/images/items/hp.png"
+            Glide.with(context).load(icon).into(upgradeImg)
+
+            animateUpgrade()
+        }
+        btnUpgradeAtk.setOnClickListener {
+            val anim = AnimationUtils.loadAnimation(this, R.anim.bounce)
+            btnUpgradeAtk.startAnimation(anim)
+            val icon = "https://movilesmx.000webhostapp.com/idle_rpg/images/items/atk.png"
+            Glide.with(context).load(icon).into(upgradeImg)
+
+            animateUpgrade()
+        }
+        btnUpgradeDef.setOnClickListener {
+            val anim = AnimationUtils.loadAnimation(this, R.anim.bounce)
+            btnUpgradeDef.startAnimation(anim)
+            val icon = "https://movilesmx.000webhostapp.com/idle_rpg/images/items/def.png"
+            Glide.with(context).load(icon).into(upgradeImg)
+
+            animateUpgrade()
+        }
+        btnUpgradeSpd.setOnClickListener {
+            val anim = AnimationUtils.loadAnimation(this, R.anim.bounce)
+            btnUpgradeSpd.startAnimation(anim)
+            val icon = "https://movilesmx.000webhostapp.com/idle_rpg/images/items/atk.png"
+            Glide.with(context).load(icon).into(upgradeImg)
+
+            animateUpgrade()
+        }
+    }
+
+    private fun animateUpgrade() {
+        val animation = AnimationUtils.loadAnimation(this, R.anim.fade_icon)
+        upgradeImg.startAnimation(animation)
+        animation.setAnimationListener(object : Animation.AnimationListener {
+            override fun onAnimationStart(animation: Animation) {
+                // Método llamado cuando la animación comienza
+                upgradeImg.isGone = false
+            }
+
+            override fun onAnimationEnd(animation: Animation) {
+                // Método llamado cuando la animación termina
+                // Aquí puedes ejecutar el código que deseas después de la animación
+                upgradeImg.isGone = true
+            }
+
+            override fun onAnimationRepeat(animation: Animation) {
+                // Método llamado cuando la animación se repite
+            }
+        })
     }
 
     private fun initializeViews() {
