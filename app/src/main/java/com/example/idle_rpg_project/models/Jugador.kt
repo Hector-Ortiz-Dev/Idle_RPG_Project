@@ -166,7 +166,7 @@ data class Jugador(
 
                     val data: Jugador = it.records[0]
 
-                    this.expSig = data.exp
+                    this.exp = data.exp
                 }
             }
         }
@@ -191,8 +191,14 @@ data class Jugador(
                     //Toast.makeText(applicationContext, "Loading information...", Toast.LENGTH_SHORT).show()
 
                     val data: Jugador = it.records[0]
-
-                    this.expSig = data.exp
+                    this.nivel = data.nivel
+                    this.exp = data.exp
+                    this.monedas = data.monedas
+                    this.hp_max = data.hp_max
+                    this.hp = data.hp
+                    this.atk = data.atk
+                    this.def = data.def
+                    this.spd = data.spd
                 }
             }
         }
@@ -217,8 +223,6 @@ data class Jugador(
                     //Toast.makeText(applicationContext, "Loading information...", Toast.LENGTH_SHORT).show()
 
                     val data: Jugador = it.records[0]
-
-                    this.expSig = data.exp
                 }
             }
         }
