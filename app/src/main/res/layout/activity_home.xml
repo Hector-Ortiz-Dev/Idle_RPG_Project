@@ -28,12 +28,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="MiinishBat"
+                android:textColor="@color/primary"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/level_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/primary"
                 android:text="Lvl 4" />
 
         </LinearLayout>
@@ -48,12 +50,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@color/primary"
                 android:text="Exp: 244/2332" />
 
             <TextView
                 android:id="@+id/coins_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/primary"
                 android:text="Coins: 230" />
 
         </LinearLayout>
